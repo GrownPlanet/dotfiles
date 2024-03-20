@@ -1,0 +1,23 @@
+theme = "onedark"
+
+[editor]
+# rulers = [100]
+idle-timeout = 50
+mouse = false
+bufferline = "always"
+cursorline = true
+
+
+# line-ending = "lf"
+
+# [editor.statusline]
+# line-ending = "crlf"
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+
+[editor.cursor-shape]
+insert = "bar"
+select = "block"
+normal = "underline"
+
