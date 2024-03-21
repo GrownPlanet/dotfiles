@@ -1,3 +1,5 @@
+shell = "nu.exe"
+
 # Colors (One Dark)
 
 # Default colors
@@ -35,6 +37,7 @@ family = "hack nerd font"
 # family = "comicshannsmono nerd font:"
 
 [window]
+dimensions = { columns = 120, lines = 40 }
 opacity = 0.9
 title = "Alacritty :)"
 
