@@ -19,4 +19,4 @@ map('v', '<leader>y', '"+y')
 -- Map leader + 'p' to paste from clipboard
 map('v', '<A>p', '"+p')
 
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map('n', 'U', '<C-r>')

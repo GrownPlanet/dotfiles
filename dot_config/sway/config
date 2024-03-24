@@ -24,7 +24,7 @@ set $menu (dmenu_path) | dmenu -m 1 -nb '#161616' -sb '#5075B3' | xargs swaymsg 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/f39/default/f39-01-night.png fill
+output * bg ~/Pictures/bg/bl.png fill
 # output * bg ~/Pictures/bg/dot.png fill
 #
 # Example configuration:
