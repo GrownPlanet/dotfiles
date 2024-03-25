@@ -1,4 +1,5 @@
-shell = "nu.exe"
+# only on windows
+# shell = "nu.exe"
 
 # Colors (One Dark)
 

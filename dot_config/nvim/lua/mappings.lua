@@ -14,9 +14,9 @@ map('v', 'y', 'y')
 map('v', 'p', 'p')
 
 -- Map leader + 'y' to yank to clipboard
-map('v', '<Leader>y', '"+y')
+map('v', '<leader>y', '"+y')
 
 -- Map leader + 'p' to paste from clipboard
-map('v', '<Leader>p', '"+p')
+map('v', '<A>p', '"+p')
 
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map('n', 'U', '<C-r>')
