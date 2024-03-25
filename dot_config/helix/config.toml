@@ -2,7 +2,7 @@ theme = "onedark"
 
 [editor]
 # rulers = [100]
-idle-timeout = 50
+idle-timeout = 0
 mouse = false
 bufferline = "always"
 cursorline = true
