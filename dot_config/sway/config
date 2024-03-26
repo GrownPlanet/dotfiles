@@ -271,8 +271,8 @@ font hack 11
 #
 # text border - text box - text color - borders
 client.focused #d0d9db #242626 #d0d9db #242626 #242626 
-client.unfocused #242626 #242626 #e8eced #242626 #242626
-client.focused_inactive #242626 #242626 #e8eced #242626 #242626
+client.unfocused #1d1e1e #242626 #e8eced #242626 #242626
+client.focused_inactive #1d1e1e #242626 #e8eced #242626 #242626
 
 
 #
