@@ -4,7 +4,7 @@ theme = "onedark"
 # rulers = [100]
 idle-timeout = 0
 mouse = false
-midle-click_paste = false
+middle-click-paste = false
 bufferline = "always"
 cursorline = true
 

@@ -237,15 +237,18 @@ bindsym $mod+Shift+p exec swaylock -f -c 000000
 # Read `man 5 sway-bar` for more information about this section.
 # bar {
 #     position top
+#     separator_symbol '|'
 # 
 #     # When the status_command prints a new line to stdout, swaybar updates.
 #     # The default just shows the current date and time.
 #     status_command while date +'%Y-%m-%d %H:%M:%S'; do sleep 1; done
 # 
+#     position bottom
+# 
 #     colors {
 #         statusline #ffffff
-#         background #272822
-#         inactive_workspace #32323200 #32323200 #5c5c5c
+#         background #242626
+#         inactive_workspace #242626 #242626 #242626
 #     }
 # }
 exec waybar

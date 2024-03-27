@@ -1,0 +1,30 @@
+{
+  // "position": "bottom",
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["sway/window"],
+  "modules-right": ["tray", "pulseaudio", "clock"],
+  "sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "tray": {
+    "icon-size": 15,
+    "spacing": 10,
+  },
+  "clock": {
+    // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    // "format-alt": "{:%Y-%m-%d}"
+    "format": "[{:%H:%M}]"
+  },
+  "pulseaudio": {
+    "format": "[  {volume}%]",
+    // "format-bluetooth": "{volume}% {icon} {format_source}",
+    // "format-bluetooth-muted": " {icon} {format_source}",
+    // "format-muted": "0% {icon} ",
+    // "format-source": "{volume}% ",
+    // "format-source-muted": "",
+    // "format-icons": {
+    //     "default": ["", "", ""]
+    // },
+    // "on-click": "pavucontrol"
+  },
+}
