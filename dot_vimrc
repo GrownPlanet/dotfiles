@@ -1,7 +1,7 @@
 " Set the color scheme
 syntax on
-colorscheme koehler   " dark background
-colorscheme wildcharm " nice syntax highlighting 
+colorscheme koehler " dark background
+colorscheme habamax " nice syntax highlighting 
 
 " Set some nicer options
 set number         " Show line numbers
@@ -22,5 +22,7 @@ let mapleader = " "
 
 nnoremap gn :bn<CR>
 nnoremap gp :bp<CR>
+
+inoremap <Esc> <Right><Esc>
 
 nnoremap <leader>f :FZF<CR>

@@ -1,18 +1,14 @@
 theme = "onedark"
 
 [editor]
-# rulers = [80]
 idle-timeout = 0
 mouse = false
 middle-click-paste = false
 bufferline = "always"
 cursorline = true
-
-
-# line-ending = "lf"
-
-# [editor.statusline]
-# line-ending = "crlf"
+line-number = "relative"
+# rulers = [80]
+# default-line-ending = "lf"
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
