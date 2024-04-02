@@ -105,4 +105,6 @@ source $ZSH/oh-my-zsh.sh
 . "$HOME/.cargo/env"
 eval $(opam env --switch=default)
 
-if [ -e /home/timo/.nix-profile/etc/profile.d/nix.sh ]; then . /home/timo/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
