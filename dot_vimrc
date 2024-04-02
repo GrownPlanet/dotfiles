@@ -4,19 +4,20 @@ colorscheme koehler " dark background
 colorscheme habamax " nice syntax highlighting 
 
 " Set some nicer options
-set number         " Show line numbers
-set relativenumber " Show relative line numbers
-set cursorline     " Highlight current line
-set showmatch      " Highlight matching brackets
-set hlsearch       " Highlight search results
-set incsearch      " Incremental search
-set ignorecase     " Ignore case when searching
-set smartcase      " Override ignorecase if search contains uppercase characters
-set tabstop=2      " Number of spaces for a tab
-set shiftwidth=2   " Number of spaces to use for autoindent
-set expandtab      " Use spaces instead of tabs
-set scrolloff=5    " Keep at least 5 lines above/below cursor when scrolling
-set nowrap         " Turn of line wrapping
+set number           " Show line numbers
+set relativenumber   " Show relative line numbers
+set cursorline       " Highlight current line
+set showmatch        " Highlight matching brackets
+set hlsearch         " Highlight search results
+set incsearch        " Incremental search
+set ignorecase       " Ignore case when searching
+set smartcase        " Override ignorecase if search contains uppercase characters
+set tabstop=2        " Number of spaces for a tab
+set shiftwidth=2     " Number of spaces to use for autoindent
+set expandtab        " Use spaces instead of tabs
+set scrolloff=5      " Keep at least 5 lines above/below cursor when scrolling
+set nowrap           " Turn of line wrapping
+set colorcolumn=125  " Write clean code
 
 let mapleader = " "
 
