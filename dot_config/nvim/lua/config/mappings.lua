@@ -1,16 +1,10 @@
 -- leader
-vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.mapleader = " "
 
 local map = vim.keymap.set
 
 -- Move cursor to the righ twhen exiting normal mode
 map('i', '<ESC>', '<Right><ESC>')
-
--- Map 'y' to yank
-map('v', 'y', 'y')
-
--- Map 'p' to paste
-map('v', 'p', 'p')
 
 -- Map leader + 'y' to yank to clipboard
 map('v', '<leader>y', '"+y')
@@ -35,3 +29,6 @@ map('n', '<leader>b', '<cmd>Telescope buffers<cr>')
 map('n', 'gn', '<cmd>bn<cr>')
 map('n', 'gp', '<cmd>bp<cr>')
 map('n', '<leader>bc', '<cmd>bd<cr>')
+
+-- don't move the cursor when combining lines
+map("n", "J", "mzJ`z")
