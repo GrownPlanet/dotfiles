@@ -73,6 +73,40 @@ require("lazy").setup({
       require('nvim-tree').setup()
     end
   },
+  -- startup screen
+  {
+    "Yoolayn/nvim-intro",
+    opts = {
+      intro = {
+        " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
+        " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
+        " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
+        " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
+        " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
+        " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
+        "                                                       ",
+        "                                                       ",
+        "   󰈔 press <space>f      ->   to find files            ",
+        "                                                       ",
+        "   󰈭 press <space>g      ->   to find word             ",
+        "                                                       ",
+        "   󰙅 press <space>t      ->   to open a file tree      ",
+        "                                                       ",
+        "    press <space>n      ->   to create new file       ",
+        "                                                       ",
+        "    press <space>e      ->   to open a file explorer  ",
+        "                                                       ",
+        "                                                       ",
+        "                     happy coding :)                   ",
+      },
+      color = "#f7f3f2",
+      scratch = true,
+      highlights = {
+        ["<Enter>"] = "#187df0",
+      }
+    },
+
+  },
   -- treesitter
   require('plugins.treesitter'),
   -- lsp 
@@ -89,4 +123,3 @@ require("lazy").setup({
   {'hrsh7th/nvim-cmp'},
   {'L3MON4D3/LuaSnip'},
 })
-

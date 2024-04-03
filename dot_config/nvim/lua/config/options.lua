@@ -31,4 +31,4 @@ vim.o.swapfile = false
 vim.o.backup = false
 
 -- line at the 80th column
-vim.o.colorcolumn = '80'
+-- vim.o.colorcolumn = '80'

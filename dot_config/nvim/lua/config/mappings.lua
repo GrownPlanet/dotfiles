@@ -21,21 +21,30 @@ map('n', 'U', '<C-r>')
 map('n', '<leader>e', vim.cmd.Ex)
 
 -- fuzzy finder
-map('n', '<leader>f', '<cmd>Telescope find_files<cr>')
-map('n', '<leader>g', '<cmd>Telescope live_grep<cr>')
-map('n', '<leader>b', '<cmd>Telescope buffers<cr>')
+map('n', '<leader>f', '<cmd>Telescope find_files<CR>')
+map('n', '<leader>g', '<cmd>Telescope live_grep<CR>')
+map('n', '<leader>b', '<cmd>Telescope buffers<CR>')
 
 -- buffers
-map('n', 'gn', '<cmd>bn<cr>')
-map('n', 'gp', '<cmd>bp<cr>')
-map('n', '<leader>bc', '<cmd>bd<cr>')
+map('n', 'gn', '<cmd>bn<CR>')
+map('n', 'gp', '<cmd>bp<CR>')
+map('n', '<leader>bc', '<cmd>bd<CR>')
 
 -- don't move the cursor when combining lines
 map('n', 'J', 'mzJ`z')
 
 -- filetree
-map('n', '<leader>t', '<cmd>NvimTreeToggle<cr>')
+map('n', '<leader>t', '<cmd>NvimTreeToggle<CR>')
 
 -- better moving throught file
 map('n', '<C-d>', '<C-d>zz')
 map('n', '<C-u>', '<C-u>zz')
+
+-- new file
+--
+function CreateFile()
+    local filename = vim.fn.input('> ')
+    vim.cmd('edit ' .. filename)
+end
+
+map('n', '<leader>n', '<cmd>lua CreateFile()<CR>')
