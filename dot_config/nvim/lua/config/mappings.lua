@@ -31,4 +31,11 @@ map('n', 'gp', '<cmd>bp<cr>')
 map('n', '<leader>bc', '<cmd>bd<cr>')
 
 -- don't move the cursor when combining lines
-map("n", "J", "mzJ`z")
+map('n', 'J', 'mzJ`z')
+
+-- filetree
+map('n', '<leader>t', '<cmd>NvimTreeToggle<cr>')
+
+-- better moving throught file
+map('n', '<C-d>', '<C-d>zz')
+map('n', '<C-u>', '<C-u>zz')

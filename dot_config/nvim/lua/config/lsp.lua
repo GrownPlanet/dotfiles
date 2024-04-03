@@ -11,7 +11,6 @@ require("mason-lspconfig").setup {
 -- here you can setup the language servers
 require('lspconfig').rust_analyzer.setup({})
 require('lspconfig').ocamllsp.setup({})
-require('lspconfig').lua_ls.setup({})
 require('lspconfig').arduino_language_server.setup{}
 
 

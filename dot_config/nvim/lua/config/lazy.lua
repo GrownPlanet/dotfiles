@@ -23,8 +23,11 @@ require("lazy").setup({
   -- auto close brackets
   {
     'm4xshen/autoclose.nvim',
-    init = function()
+    init = function ()
       require("autoclose").setup({
+        keys = {
+          ["'"] = { close = false }
+        },
         options = {
           pair_spaces = true,
         }
@@ -34,7 +37,7 @@ require("lazy").setup({
   -- color scheme
   {
     'navarasu/onedark.nvim',
-    init = function()
+    init = function ()
       require('onedark').load()
     end,
   },
@@ -45,7 +48,7 @@ require("lazy").setup({
       'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     },
-    init = function()
+    init = function ()
       vim.g.barbar_auto_setup = true
     end,
   },
@@ -53,14 +56,21 @@ require("lazy").setup({
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    init = function()
+    init = function ()
       require('lualine').setup()
     end,
   },
   {
     'lewis6991/gitsigns.nvim',
-    init = function()
+    init = function ()
       require('gitsigns').setup()
+    end
+  },
+  -- file tree 
+  {
+    'nvim-tree/nvim-tree.lua',
+    init = function ()
+      require('nvim-tree').setup()
     end
   },
   -- treesitter
@@ -68,7 +78,7 @@ require("lazy").setup({
   -- lsp 
   {
     'williamboman/mason.nvim',
-    init = function()
+    init = function ()
       require("mason").setup()
     end,
   },

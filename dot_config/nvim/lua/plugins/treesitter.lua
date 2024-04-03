@@ -1,8 +1,7 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   build = ":TSUpdate",
-  init = function(plugin)
-    require("lazy.core.loader").add_to_rtp(plugin)
+  init = function()
     require("nvim-treesitter.query_predicates")
   end,
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
