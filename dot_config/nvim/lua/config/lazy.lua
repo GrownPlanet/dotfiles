@@ -113,7 +113,7 @@ require("lazy").setup({
       require('Comment').setup({
         toggler = {
           line = '<C-c>',
-          block = '<C-b>',
+          block = '<C-x>',
         },
       })
     end,
