@@ -106,6 +106,18 @@ require("lazy").setup({
     },
 
   },
+  -- comments 
+  {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup({
+        toggler = {
+          line = '<C-c>',
+          block = '<C-b>',
+        },
+      })
+    end,
+  },
   -- treesitter
   require('plugins.treesitter'),
   -- lsp 

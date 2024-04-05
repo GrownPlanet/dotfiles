@@ -34,8 +34,8 @@ white   = '#ffffff'
 shape = "underline"
 
 [font.normal]
-family = "hack nerd font"
-# family = "comicshannsmono nerd font"
+# family = "hack nerd font"
+family = "comicshannsmono nerd font"
 
 [window]
 dimensions = { columns = 120, lines = 35 }
