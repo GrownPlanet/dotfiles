@@ -4,8 +4,11 @@ lsp_zero.on_attach(function(_, bufnr)
   lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
+-- add code actions
+vim.keymap.set('n', '<leader>ca', function() vim.lsp.buf.code_action() end)
+
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "rust_analyzer", "ocamllsp" },
+  ensure_installed = { "lua_ls", "rust_analyzer", "ocamllsp" },
 }
 
 -- here you can setup the language servers
@@ -13,7 +16,6 @@ require('lspconfig').rust_analyzer.setup({})
 require('lspconfig').ocamllsp.setup({})
 require('lspconfig').arduino_language_server.setup{}
 require('lspconfig').lua_ls.setup{}
-
 
 -- autocomplete
 local cmp = require('cmp')
@@ -39,3 +41,4 @@ cmp.setup({
     end,
   },
 })
+
