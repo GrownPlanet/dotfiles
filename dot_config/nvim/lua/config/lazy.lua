@@ -35,12 +35,7 @@ require("lazy").setup({
     end,
   },
   -- color scheme
-  {
-    'navarasu/onedark.nvim',
-    init = function ()
-      require('onedark').load()
-    end,
-  },
+  require('plugins.colorscheme'),
   -- top bar
   {
     'romgrk/barbar.nvim',
@@ -51,6 +46,10 @@ require("lazy").setup({
     init = function ()
       vim.g.barbar_auto_setup = true
     end,
+    opts = {
+      animation = false,
+      clickable = false,
+    },
   },
   -- status bar
   {

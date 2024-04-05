@@ -12,6 +12,7 @@ require("mason-lspconfig").setup {
 require('lspconfig').rust_analyzer.setup({})
 require('lspconfig').ocamllsp.setup({})
 require('lspconfig').arduino_language_server.setup{}
+require('lspconfig').lua_ls.setup{}
 
 
 -- autocomplete

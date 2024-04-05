@@ -23,12 +23,13 @@ map('n', '<leader>e', vim.cmd.Ex)
 -- fuzzy finder
 map('n', '<leader>f', '<cmd>Telescope find_files<CR>')
 map('n', '<leader>g', '<cmd>Telescope live_grep<CR>')
-map('n', '<leader>b', '<cmd>Telescope buffers<CR>')
+map('n', '<leader>bf', '<cmd>Telescope buffers<CR>')
 
 -- buffers
-map('n', 'gn', '<cmd>bn<CR>')
-map('n', 'gp', '<cmd>bp<CR>')
-map('n', '<leader>bc', '<cmd>bd<CR>')
+map('n', 'gn', '<cmd>BufferNext<CR>')
+map('n', 'gp', '<cmd>BufferPrevious<CR>')
+map('n', '<leader>bp', '<cmd>BufferPick<CR>')
+map('n', '<leader>bc', '<cmd>BufferClose<CR>')
 
 -- don't move the cursor when combining lines
 map('n', 'J', 'mzJ`z')
