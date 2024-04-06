@@ -51,7 +51,3 @@ map('n', '<leader>n', '<cmd>lua CreateFile()<CR>')
 
 -- void replace
 map('x', '<leader>rp', '"_dP')
-
--- comment out lines
-map('n', '<C-c>', 'gcc')
-map('n', '<C-b>', 'gdc')

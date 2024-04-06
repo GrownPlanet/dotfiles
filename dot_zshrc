@@ -108,3 +108,5 @@ eval $(opam env --switch=default)
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+# underscore cusor
+printf '\033[4 q'
