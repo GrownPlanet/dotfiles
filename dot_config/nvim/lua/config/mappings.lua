@@ -13,6 +13,8 @@ map('n', '<leader>y', '"+y')
 -- Map leader + 'p' to paste from clipboard
 map('v', '<leader>p', '"+p')
 map('n', '<leader>p', '"+p')
+map('v', '<leader>P', '"+P')
+map('n', '<leader>P', '"+P')
 
 -- Map U to undo
 map('n', 'U', '<C-r>')

@@ -278,12 +278,11 @@ client.focused_inactive #1d1e1e #242626 #e8eced #242626 #242626
 
 
 #
-# system monitor 
+# lights
 #
-bindsym Control+Shift+Escape exec gnome-system-monitor
-
-bindsym $mod+Control+Shift+6 exec light off
-bindsym $mod+Control+Shift+7 exec light low
-bindsym $mod+Control+Shift+8 exec light on
+bindsym $mod+Control+Shift+6 exec light 100
+bindsym $mod+Control+Shift+7 exec light 25
+bindsym $mod+Control+Shift+8 exec light 0
 
 include /etc/sway/config.d/*
+
