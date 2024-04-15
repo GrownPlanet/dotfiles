@@ -5,8 +5,8 @@
 
 # Default colors
 [colors.primary]
-background = '#000000'
-# background =  '#282c34'
+# background = '#000000'
+background =  '#282c34'
 foreground = '#abb2bf'
 
 # Normal colors
@@ -40,7 +40,7 @@ family = "hack nerd font"
 
 [window]
 dimensions = { columns = 120, lines = 35 }
-# opacity = 0.9
+opacity = 0.95
 title = "Alacritty :)"
 
 [window.padding]

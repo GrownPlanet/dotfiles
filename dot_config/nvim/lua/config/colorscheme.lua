@@ -1,2 +1,2 @@
 vim.o.termguicolors = true
-vim.cmd('colorscheme midnight')
+vim.cmd('colorscheme onedark')

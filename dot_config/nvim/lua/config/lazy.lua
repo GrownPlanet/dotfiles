@@ -50,6 +50,7 @@ require("lazy").setup({
       animation = false,
       clickable = false,
     },
+    enabled = false
   },
   -- status bar
   {
@@ -137,4 +138,7 @@ require("lazy").setup({
   {
     'christoomey/vim-tmux-navigator'
   },
+  {
+    'xiyaowong/transparent.nvim'
+  }
 })
