@@ -50,7 +50,6 @@ require("lazy").setup({
       animation = false,
       clickable = false,
     },
-    enabled = false
   },
   -- status bar
   {
