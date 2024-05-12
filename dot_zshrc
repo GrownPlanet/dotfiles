@@ -11,6 +11,9 @@ ENABLE_CORRECTION="true"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# keep the title
+DISABLE_AUTO_TITLE="true"
+
 #plugins
 plugins=(
   git
@@ -27,6 +30,10 @@ source $ZSH/oh-my-zsh.sh
 eval $(opam env --switch=default)
 
 # default editor
-export VISUAL=vim
+export VISUAL=nvim
+
+# undersocre cursor for termux
+printf '\033[4 q'
+
 # idk
 export EDITOR="$VISUAL"
