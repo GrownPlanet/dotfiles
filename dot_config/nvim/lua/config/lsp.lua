@@ -23,8 +23,10 @@ local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
   sources = {
-    {name = 'nvim_lsp'},
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
   },
+
   mapping = cmp.mapping.preset.insert({
     ['<CR>'] = cmp.mapping.confirm({select = false}),
     ['<C-e>'] = cmp.mapping.abort(),

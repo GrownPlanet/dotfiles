@@ -118,6 +118,40 @@ require("lazy").setup({
       })
     end,
   },
+  -- snippets
+  {
+    'L3MON4D3/LuaSnip',
+    dependencies = { "rafamadriz/friendly-snippets" },
+    config = function ()
+      require("luasnip.loaders.from_vscode").lazy_load()
+
+      local ls = require("luasnip")
+
+      vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
+      vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
+      vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
+
+      vim.keymap.set({"i", "s"}, "<C-E>", function()
+        if ls.choice_active() then
+          ls.change_choice(1)
+        end
+      end, {silent = true})
+    end
+    --[[
+    config = function()
+      local ls = require("luasnip")
+
+      ls.add_snippets("all", {
+        ls.snippet("autotrigger", {
+          ls.text_node("autosnippet"),
+        }),
+      }, {
+          type = "autosnippets",
+          key = "all_auto",
+        })
+    end,
+    ]]
+  },
   -- treesitter
   require('plugins.treesitter'),
   -- lsp 
@@ -127,12 +161,11 @@ require("lazy").setup({
       require("mason").setup()
     end,
   },
-  {'williamboman/mason-lspconfig.nvim'},
-  {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-  {'neovim/nvim-lspconfig'},
-  {'hrsh7th/cmp-nvim-lsp'},
-  {'hrsh7th/nvim-cmp'},
-  {'L3MON4D3/LuaSnip'},
+  { 'williamboman/mason-lspconfig.nvim' },
+  { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
+  { 'neovim/nvim-lspconfig' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/nvim-cmp' },
   -- tmux
   {
     'christoomey/vim-tmux-navigator'
