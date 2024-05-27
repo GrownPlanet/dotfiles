@@ -1,9 +1,9 @@
 while true
 do 
-  datetime=$(date +'%Y-%m-%d %H:%M:%S')
+  datetime=$(date +'%H:%M:%S - %d-%m-%Y')
   volume=$(amixer sget Master | awk -F"[][]" '/Left:/ { print $2 }')
 
-  echo "$datetime | $volume"
+  echo "$datetime - $volume"
 
   sleep 1
 done

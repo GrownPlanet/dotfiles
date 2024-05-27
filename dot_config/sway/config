@@ -235,6 +235,7 @@ bindsym $mod+Shift+p exec swaylock -f -c 000000
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
+    separator_symbol '|'
     status_command ~/.config/sway/bar.sh
 }
 # exec waybar
