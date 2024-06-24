@@ -136,19 +136,18 @@ require("lazy").setup({
           ls.change_choice(1)
         end
       end, {silent = true})
-    end
+    end,
+
     --[[
     config = function()
       local ls = require("luasnip")
-
-      ls.add_snippets("all", {
-        ls.snippet("autotrigger", {
-          ls.text_node("autosnippet"),
-        }),
-      }, {
-          type = "autosnippets",
-          key = "all_auto",
+      ls.add_snippets("rust", {
+        ls.snippet("timecode", {
+          ls.text_node("let now = Instant::now();"),
+          ls.text_node("let elapsed = now.elapsed().as_millis();"),
+          ls.text_node("println(\"code took {}ms\", elapsed);")
         })
+      })
     end,
     ]]
   },

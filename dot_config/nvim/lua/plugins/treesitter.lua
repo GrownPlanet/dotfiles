@@ -9,7 +9,7 @@ return {
     highlight = { enable = true },
     indent = { enable = true },
     ensure_installed = {
-      "bash", "c", "lua", "markdown", "toml", "rust", "cpp", "ocaml"
+      "bash", "c", "cpp", "lua", "markdown", "toml", "rust", "ocaml", "zig", "json"
     }
   },
   config = function(_, opts)

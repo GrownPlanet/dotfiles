@@ -28,10 +28,8 @@ output * bg ~/Pictures/bg/clouds.jpg fill
 #
 # Example configuration:
 #
-# disable output, for some reason
-# output eDP-1 disable
-output eDP-1 resolution 1280x720 position 0,0
-#
+output eDP-1 scale 1.2 position 0 180
+output HDMI-A-2 position 1599 0
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
@@ -273,4 +271,3 @@ bindsym $mod+Control+Shift+7 exec light 25
 bindsym $mod+Control+Shift+8 exec light 0
 
 include /etc/sway/config.d/*
-
