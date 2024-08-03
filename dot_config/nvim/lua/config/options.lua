@@ -30,8 +30,8 @@ vim.o.signcolumn = 'yes:2'
 vim.o.swapfile = false
 vim.o.backup = false
 
--- line at the 80th column
--- vim.o.colorcolumn = '80'
+-- line at the 100th column
+-- vim.o.colorcolumn = '100'
 
 -- truecolor
 vim.o.termguicolors = true

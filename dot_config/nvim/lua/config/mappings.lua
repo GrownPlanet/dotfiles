@@ -30,6 +30,8 @@ map('n', '<leader>b', '<cmd>Telescope buffers<CR>')
 -- buffers
 map('n', 'gn', '<cmd>BufferNext<CR>')
 map('n', 'gp', '<cmd>BufferPrevious<CR>')
+map('n', '<cmd>bc<CR>', '<cmd>BufferClose<CR>')
+vim.api.nvim_create_user_command('Bc', 'BufferClose', {})
 -- map('n', '<leader>bp', '<cmd>BufferPick<CR>')
 -- map('n', '<leader>bc', '<cmd>BufferClose<CR>')
 
