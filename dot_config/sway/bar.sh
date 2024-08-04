@@ -5,7 +5,7 @@ do
 
   battery=$(upower -i /org/freedesktop/UPower/devices/battery_BAT1 | awk '/percentage/ {print $2}')
 
-  echo "$datetime - $volume | $battery"
+  echo "dat: $datetime | vol: $volume | bat: $battery"
 
   sleep 1
 done
