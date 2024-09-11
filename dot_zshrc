@@ -33,7 +33,7 @@ eval $(opam env --switch=default)
 # default editor
 export VISUAL=nvim
 
-# undersocre cursor for termux
+# undersocre cursor for tmux
 printf '\033[4 q'
 
 # local bin file
@@ -43,6 +43,6 @@ export PATH="$HOME/bin":$PATH
 # idk
 export EDITOR="$VISUAL"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

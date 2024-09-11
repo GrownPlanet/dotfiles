@@ -52,59 +52,18 @@ require("lazy").setup({
     },
   },
   -- status bar
-  {
+  --[[ {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     init = function ()
       require('lualine').setup()
     end,
-  },
+  }, ]]
   {
     'lewis6991/gitsigns.nvim',
     init = function ()
       require('gitsigns').setup()
     end
-  },
-  -- file tree 
-  {
-    'nvim-tree/nvim-tree.lua',
-    init = function ()
-      require('nvim-tree').setup()
-    end
-  },
-  -- startup screen
-  {
-    "Yoolayn/nvim-intro",
-    opts = {
-      intro = {
-        " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
-        " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
-        " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
-        " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
-        " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
-        " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
-        "                                                       ",
-        "                                                       ",
-        "   󰈔 press <space>f    ->    to find files             ",
-        "                                                       ",
-        "   󰈭 press <space>g    ->    to find word              ",
-        "                                                       ",
-        "   󰙅 press <space>t    ->    to open a file tree       ",
-        "                                                       ",
-        "    press <space>n    ->    to create new file        ",
-        "                                                       ",
-        "    press <space>e    ->    to open a file explorer   ",
-        "                                                       ",
-        "                                                       ",
-        "                    happy coding :)                    ",
-      },
-      color = "#f7f3f2",
-      scratch = true,
-      highlights = {
-        ["<Enter>"] = "#187df0",
-      }
-    },
-
   },
   -- comments 
   {
@@ -138,7 +97,6 @@ require("lazy").setup({
       end, {silent = true})
     end,
 
-    --[[
     config = function()
       local ls = require("luasnip")
       ls.add_snippets("rust", {
@@ -149,7 +107,6 @@ require("lazy").setup({
         })
       })
     end,
-    ]]
   },
   -- treesitter
   require('plugins.treesitter'),
@@ -166,10 +123,7 @@ require("lazy").setup({
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'hrsh7th/nvim-cmp' },
   -- tmux
-  {
-    'christoomey/vim-tmux-navigator'
-  },
-  {
-    'xiyaowong/transparent.nvim'
-  }
+  { 'christoomey/vim-tmux-navigator' },
+  { 'xiyaowong/transparent.nvim' },
+  { 'ThePrimeagen/vim-be-good' },
 })

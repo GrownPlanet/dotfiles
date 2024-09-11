@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 local map = vim.keymap.set
 
 -- Move cursor to the righ twhen exiting normal mode
-map('i', '<ESC>', '<Right><ESC>')
+-- map('i', '<ESC>', '<Right><ESC>')
 
 -- Map leader + 'y' to yank to clipboard
 map('v', '<leader>y', '"+y')
@@ -37,9 +37,6 @@ vim.api.nvim_create_user_command('Bc', 'BufferClose', {})
 
 -- don't move the cursor when combining lines
 map('n', 'J', 'mzJ`z')
-
--- filetree
-map('n', '<leader>t', '<cmd>NvimTreeToggle<CR>')
 
 -- better moving throught file
 map('n', '<C-d>', '<C-d>zz')

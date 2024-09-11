@@ -16,8 +16,8 @@ vim.o.incsearch = true
 vim.o.hlsearch = false
 
 -- spaces
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
 vim.o.scrolloff = 8
@@ -31,7 +31,7 @@ vim.o.swapfile = false
 vim.o.backup = false
 
 -- line at the 100th column
--- vim.o.colorcolumn = '100'
+vim.o.colorcolumn = '100'
 
 -- truecolor
 vim.o.termguicolors = true
