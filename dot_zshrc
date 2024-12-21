@@ -28,7 +28,7 @@ source $ZSH/oh-my-zsh.sh
 . "$HOME/.cargo/env"
 
 # ocaml
-eval $(opam env --switch=default)
+# eval $(opam env --switch=default)
 
 # default editor
 export VISUAL=nvim
@@ -43,6 +43,6 @@ export PATH="$HOME/bin":$PATH
 # idk
 export EDITOR="$VISUAL"
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fastfetch
+
+[ -f "/home/timo/.ghcup/env" ] && . "/home/timo/.ghcup/env" # ghcup-env

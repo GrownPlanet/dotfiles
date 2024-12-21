@@ -11,19 +11,15 @@ require("mason-lspconfig").setup {
   ensure_installed = {
     "lua_ls",
     "rust_analyzer",
-    "ocamllsp",
     "pyright",
-    "tsserver"
   },
 }
 
 -- here you can setup the language servers
 require('lspconfig').rust_analyzer.setup({})
-require('lspconfig').ocamllsp.setup({})
 require('lspconfig').arduino_language_server.setup({})
 require('lspconfig').lua_ls.setup({})
-require('lspconfig').pyright.setup({})
-require('lspconfig').tsserver.setup({})
+require('lspconfig').hls.setup({})
 
 -- autocomplete
 local cmp = require('cmp')
