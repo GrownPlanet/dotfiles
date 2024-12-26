@@ -25,45 +25,31 @@ require("lazy").setup({
         'm4xshen/autoclose.nvim',
         init = function ()
             require("autoclose").setup({
-                keys = {
-                    ["'"] = { close = false }
-                },
-                options = {
-                    pair_spaces = true,
-                }
+                keys = { ["'"] = { close = false } },
+                options = { pair_spaces = true, }
             })
         end,
     },
-    -- color scheme
-    require('plugins.colorscheme'),
-    -- top bar
-    --[[
-    {
-    'romgrk/barbar.nvim',
-    dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
-    },
-    init = function ()
-      vim.g.barbar_auto_setup = true
-    end,
-    opts = {
-      animation = false,
-      clickable = false,
-    },
-    },
-    ]]
+    -- color schemes
+    { 'navarasu/onedark.nvim' },
+    { 'folke/tokyonight.nvim' },
+    { 'catppuccin/nvim' },
+    { 'dasupradyumna/midnight.nvim' },
     -- status bar
-    --[[ {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    init = function ()
-      require('lualine').setup()
-    end,
-    }, ]]
     {
-        'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        init = function ()
+            require('lualine').setup({
+                options = { theme = 'onedark' }
+            })
+        end,
     },
+    -- icons
+    {
+        'nvim-tree/nvim-web-devicons',
+    },
+    -- gitsigns
     {
         'lewis6991/gitsigns.nvim',
         init = function ()
@@ -100,17 +86,6 @@ require("lazy").setup({
                     ls.change_choice(1)
                 end
             end, {silent = true})
-        end,
-
-        config = function()
-            local ls = require("luasnip")
-            ls.add_snippets("rust", {
-                ls.snippet("timecode", {
-                    ls.text_node("let now = Instant::now();"),
-                    ls.text_node("let elapsed = now.elapsed().as_millis();"),
-                    ls.text_node("println(\"code took {}ms\", elapsed);")
-                })
-            })
         end,
     },
     -- treesitter

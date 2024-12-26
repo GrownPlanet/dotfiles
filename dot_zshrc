@@ -1,10 +1,8 @@
+# zsh
 export ZSH="$HOME/.oh-my-zsh"
 
 # theme
 ZSH_THEME="robbyrussell"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -19,30 +17,18 @@ plugins=(
   git
   zsh-autosuggestions
 )
-
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
 
 # rust
 . "$HOME/.cargo/env"
 
-# ocaml
-# eval $(opam env --switch=default)
-
 # default editor
 export VISUAL=nvim
-
-# undersocre cursor for tmux
-printf '\033[4 q'
+export EDITOR="$VISUAL"
 
 # local bin file
 export PATH="$HOME/.local/bin":$PATH
 export PATH="$HOME/bin":$PATH
 
-# idk
-export EDITOR="$VISUAL"
-
-fastfetch
-
-[ -f "/home/timo/.ghcup/env" ] && . "/home/timo/.ghcup/env" # ghcup-env
+# nvim alias
+alias nv=nvim

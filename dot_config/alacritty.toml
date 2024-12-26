@@ -32,7 +32,8 @@ cyan    = '#56b6c2'
 white   = '#ffffff'
 
 [cursor.style]
-shape = "underline"
+shape = "Block"
+blinking = "Off"
 
 [mouse]
 hide_when_typing = true
