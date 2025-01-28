@@ -30,5 +30,8 @@ export EDITOR="$VISUAL"
 export PATH="$HOME/.local/bin":$PATH
 export PATH="$HOME/bin":$PATH
 
+# c compiler
+export CC="gcc"
+
 # nvim alias
 alias nv=nvim

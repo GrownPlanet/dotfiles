@@ -1,9 +1,31 @@
 # only on windows
 # shell = "nu.exe"
 
-# Colors (One Dark)
+[cursor.style]
+shape = "Block"
 
-# Default colors
+[mouse]
+hide_when_typing = true
+
+[font]
+size = 11
+
+[font.normal]
+family = "caskaydiacove nerd font"
+
+[window]
+dimensions = { columns = 120, lines = 35 }
+opacity = 0.9
+title = "Alacritty :)"
+
+[window.padding]
+x = 5
+y = 5
+
+[env]
+TERM = "xterm-256color"
+
+# Colors (One Dark)
 [colors.primary]
 # background = '#000000'
 background =  '#282c34'
@@ -30,31 +52,3 @@ blue    = '#61afef'
 magenta = '#c678dd'
 cyan    = '#56b6c2'
 white   = '#ffffff'
-
-[cursor.style]
-shape = "Block"
-blinking = "Off"
-
-[mouse]
-hide_when_typing = true
-
-[font]
-size = 11
-
-[font.normal]
-# family = "hack nerd font"
-family = "caskaydiacove nerd font"
-# family = "comicshannsmono nerd font"
-# style = "mono"
-
-[window]
-dimensions = { columns = 120, lines = 35 }
-opacity = 0.9
-title = "Alacritty :)"
-
-[window.padding]
-x = 5
-y = 5
-
-[env]
-TERM = "xterm-256color"

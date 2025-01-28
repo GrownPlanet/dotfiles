@@ -38,10 +38,14 @@ require("lazy").setup({
     -- status bar
     {
         'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
         init = function ()
             require('lualine').setup({
-                options = { theme = 'onedark' }
+                options = {
+                    theme = 'onedark',
+                    icons_enabled = false,
+                    component_separators = '',
+                    section_separators = '',
+                },
             })
         end,
     },
