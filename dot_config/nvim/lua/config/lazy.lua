@@ -92,6 +92,13 @@ require("lazy").setup({
             end, {silent = true})
         end,
     },
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'saadparwaiz1/cmp_luasnip',
+        }
+    },
+    { 'hrsh7th/cmp-buffer' },
     -- treesitter
     require('plugins.treesitter'),
     -- lsp 
@@ -105,7 +112,6 @@ require("lazy").setup({
     { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
     { 'neovim/nvim-lspconfig' },
     { 'hrsh7th/cmp-nvim-lsp' },
-    { 'hrsh7th/nvim-cmp' },
     -- tmux
     { 'christoomey/vim-tmux-navigator' },
     { 'xiyaowong/transparent.nvim' },
