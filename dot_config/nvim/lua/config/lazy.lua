@@ -32,16 +32,13 @@ require("lazy").setup({
     },
     -- color schemes
     { 'navarasu/onedark.nvim' },
-    { 'folke/tokyonight.nvim' },
     { 'catppuccin/nvim' },
-    { 'dasupradyumna/midnight.nvim' },
     -- status bar
     {
         'nvim-lualine/lualine.nvim',
         init = function ()
             require('lualine').setup({
                 options = {
-                    theme = 'onedark',
                     icons_enabled = false,
                     component_separators = '',
                     section_separators = '',
@@ -50,9 +47,7 @@ require("lazy").setup({
         end,
     },
     -- icons
-    {
-        'nvim-tree/nvim-web-devicons',
-    },
+    { 'nvim-tree/nvim-web-devicons' },
     -- gitsigns
     {
         'lewis6991/gitsigns.nvim',
@@ -114,6 +109,4 @@ require("lazy").setup({
     { 'hrsh7th/cmp-nvim-lsp' },
     -- tmux
     { 'christoomey/vim-tmux-navigator' },
-    { 'xiyaowong/transparent.nvim' },
-    { 'ThePrimeagen/vim-be-good' },
 })
