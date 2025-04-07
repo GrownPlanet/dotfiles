@@ -34,13 +34,5 @@ map('n', 'J', 'mzJ`z')
 map('n', '<C-d>', '<C-d>zz')
 map('n', '<C-u>', '<C-u>zz')
 
--- new file
-function CreateFile()
-    local filename = vim.fn.input('> ')
-    vim.cmd('edit ' .. filename)
-end
-
-map('n', '<leader>n', '<cmd>lua CreateFile()<CR>')
-
 -- void replace
 map('x', '<leader>rp', '"_dP')
