@@ -169,40 +169,22 @@ exec swayidle -w \
     before-sleep 'swaylock -f -c 000000'
 
 # colors
-set $rosewater #f4dbd6
-set $flamingo #f0c6c6
-set $pink #f5bde6
-set $mauve #c6a0f6
 set $red #ed8796
-set $maroon #ee99a0
-set $peach #f5a97f
-set $yellow #eed49f
 set $green #a6da95
 set $green2 #6F8468
-set $teal #8bd5ca
-set $sky #91d7e3
-set $sapphire #7dc4e4
-set $blue #8aadf4
-set $lavender #b7bdf8
+set $greentext #d2fcc4
 set $text #cad3f5
-set $subtext1 #b8c0e0
-set $subtext0 #a5adcb
-set $overlay2 #939ab7
-set $overlay1 #8087a2
 set $overlay0 #6e738d
 set $surface2 #5b6078
-set $surface1 #494d64
-set $surface0 #363a4f
 set $base #24273a
-set $mantle #1e2030
 set $crust #181926
 
-# target                 title     bg      text   indicator  border
-client.focused           $overlay0 $green2 $crust $overlay0  $overlay0
-client.focused_inactive  $overlay0 $base   $text  $overlay0  $overlay0
-client.unfocused         $overlay0 $base   $text  $overlay0  $overlay0
-client.urgent            $overlay0 $base   $green $overlay0  $overlay0
-client.placeholder       $overlay0 $base   $text  $overlay0  $overlay0
+# target                 title     bg      text       indicator  border
+client.focused           $overlay0 $green2 $greentext $overlay0  $overlay0
+client.focused_inactive  $overlay0 $base   $text      $overlay0  $overlay0
+client.unfocused         $overlay0 $base   $text      $overlay0  $overlay0
+client.urgent            $overlay0 $base   $green     $overlay0  $overlay0
+client.placeholder       $overlay0 $base   $text      $overlay0  $overlay0
 client.background        $base
 
 # Status Bar:
@@ -215,7 +197,7 @@ bar {
         focused_separator  $base
 
         # target           border bg        text
-        focused_workspace  $base  $green2   $crust
+        focused_workspace  $base  $green2   $greentext
         active_workspace   $base  $surface2 $text
         inactive_workspace $base  $base     $text
         urgent_workspace   $base  $red      $crust
