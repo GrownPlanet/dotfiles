@@ -18,11 +18,15 @@ require("mason-lspconfig").setup {
 require('lspconfig').rust_analyzer.setup({})
 require('lspconfig').arduino_language_server.setup({})
 require('lspconfig').lua_ls.setup({})
-require('lspconfig').hls.setup({})
+require('lspconfig').ocamllsp.setup({})
+-- require('lspconfig').hls.setup({})
 
 -- autocomplete
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
+
+-- show error message behind the line
+vim.diagnostic.config({ virtual_text = {}, })
 
 cmp.setup({
     sources = {
