@@ -96,6 +96,8 @@ require("lazy").setup({
     { 'hrsh7th/cmp-buffer' },
     -- treesitter
     require('plugins.treesitter'),
+    -- context
+    { 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
     -- lsp 
     {
         'williamboman/mason.nvim',

@@ -26,10 +26,6 @@ vim.o.autoindent = true
 
 vim.o.signcolumn = 'yes:2'
 
--- no backup
-vim.o.swapfile = false
-vim.o.backup = false
-
 -- line at the 100th column
 vim.o.colorcolumn = '100'
 

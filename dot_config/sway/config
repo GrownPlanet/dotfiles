@@ -211,6 +211,6 @@ bar {
 font hack 11
 
 # (open)rgb, because the settings in openrgb only work on gnome, for some reason
-exec openrgb --startminimized -c FFFFFF
+exec "openrgb -c FFFFFF"
 
 include /etc/sway/config.d/*

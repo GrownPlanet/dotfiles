@@ -1,6 +1,3 @@
-# only on windows
-# shell = "nu.exe"
-
 [cursor.style]
 shape = "Block"
 
@@ -8,10 +5,11 @@ shape = "Block"
 hide_when_typing = true
 
 [font]
-size = 11
+size = 12
 
 [font.normal]
-family = "caskaydiacove nerd font"
+family = "JetBrainsMono Nerd Font"
+style = "regular"
 
 [window]
 dimensions = { columns = 120, lines = 35 }
@@ -22,9 +20,11 @@ title = "Alacritty :)"
 x = 5
 y = 5
 
+# proper tmux colors
 [env]
 TERM = "xterm-256color"
 
+# color scheme (catppuccin macciato)
 [colors.primary]
 background = "#24273a"
 foreground = "#cad3f5"
