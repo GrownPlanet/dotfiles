@@ -1,0 +1,4 @@
+[options]
+background = #2e3440
+overlay = true
+overlay_font = monospace:12

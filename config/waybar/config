@@ -1,0 +1,33 @@
+{
+    "position": "bottom", 
+    "height": 30,
+    "modules-left": ["sway/workspaces"],
+    "modules-right": ["pulseaudio", "custom/date", "clock", "custom/power"],
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"format": "{icon}"
+     },
+	"custom/power": {
+		"format": "󰐥",
+		"on-click": "wlogout"
+	},
+	"clock": {
+		"format": "󰅐 {:%H:%M 󰸗 %d-%m-%Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+	},
+	"pulseaudio": {
+		"format": "{icon}  {volume}%",
+        	"format-muted": "󰖁 Muted",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
