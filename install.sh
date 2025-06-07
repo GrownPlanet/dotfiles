@@ -9,11 +9,11 @@ if [ -z "$pkg_manager" ] || [ -z "$mode" ]; then
 fi
 
 # general packages
-sudo $pkg_manager install unzip fish sway waybar swaylock rofi neovim tmux alacritty celluloid mako grim slurp wl-clipboard wlogout playerctl
+sudo $pkg_manager install unzip fish sway waybar swaylock fuzzel neovim tmux alacritty celluloid mako grim slurp wl-clipboard wlogout playerctl
 
 # backgrounds/ wallpapers
-if [ ! -d "$HOME/.local/share/fonts/JetBrainsMono" ]; then
-    mkdir "$HOME/.local/share/fonts/JetBrainsMono"
+if [ ! -d "$HOME/.local/share/backgrounds" ]; then
+    mkdir "$HOME/.local/share/backgrounds"
 fi
 cp ./assets/imgs/* ~/.local/share/backgrounds/
 

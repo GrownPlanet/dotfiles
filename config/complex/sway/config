@@ -10,9 +10,9 @@ set $term    alacritty
 # change if necessary
 set $browser librewolf
 
-set $menu rofi -show run
+set $menu fuzzel
 
-output * bg $HOME/.local/share/backgrounds/nord.png fill
+output * bg $HOME/.local/share/backgrounds/mountains.jpg fill
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output HDMI-A-1 position 0 180
@@ -137,9 +137,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # sound control
-bindsym XF86AudioMute exec amixer set Master toggle
-bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
-bindsym XF86AudioLowerVolume exec amixer -q sset Master 1%-
+bindsym XF86AudioMute        exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
 
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
@@ -182,10 +182,40 @@ titlebar_border_thickness 2
 gaps outer 5
 gaps inner 5
 
-client.focused          #88c0d0 #434c5e #eceff4 #8fbcbb   #88c0d0
-client.focused_inactive #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
-client.unfocused        #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
-client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
+set $rosewater #f4dbd6
+set $flamingo #f0c6c6
+set $pink #f5bde6
+set $mauve #c6a0f6
+set $red #ed8796
+set $maroon #ee99a0
+set $peach #f5a97f
+set $yellow #eed49f
+set $green #a6da95
+set $teal #8bd5ca
+set $sky #91d7e3
+set $sapphire #7dc4e4
+set $blue #8aadf4
+set $lavender #b7bdf8
+set $text #cad3f5
+set $subtext1 #b8c0e0
+set $subtext0 #a5adcb
+set $overlay2 #939ab7
+set $overlay1 #8087a2
+set $overlay0 #6e738d
+set $surface2 #5b6078
+set $surface1 #494d64
+set $surface0 #363a4f
+set $base #24273a
+set $mantle #1e2030
+set $crust #181926
+
+# target                 title     bg    text   indicator  border
+client.focused           $blue     $base $text  $blue      $blue
+client.focused_inactive  $overlay0 $base $text  $blue      $overlay0
+client.unfocused         $overlay0 $base $text  $blue      $overlay0
+client.urgent            $blue     $base $blue  $overlay0  $blue
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
 
 # Status Bar:
 # Read `man 5 sway-bar` for more information about this section.

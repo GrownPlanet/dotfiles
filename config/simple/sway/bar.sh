@@ -3,7 +3,7 @@
 while true
 do 
   datetime=$(date +'%H:%M:%S | %d-%m-%Y')
-  volume=$(amixer sget Master | awk -F"[][]" '/Left:/ { print $2 }')
+  volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{printf "%d%%\n", $2 * 100}')
 
   echo "$datetime | $volume"
 

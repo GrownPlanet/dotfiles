@@ -31,3 +31,6 @@ vim.o.colorcolumn = '100'
 
 -- truecolor
 vim.o.termguicolors = true
+
+-- spellcheck
+vim.o.spell = true

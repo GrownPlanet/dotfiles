@@ -10,9 +10,9 @@ set $term    alacritty
 # change if necessary
 set $browser librewolf
 
-set $menu rofi -show run
+set $menu dmenu_run -m 1 -nb '#24273A' -nf '#CAD3F5' -sb '#8AADF4' -sf '#24273A'
 
-output * bg $HOME/.local/share/backgrounds/nord.png fill
+output * bg $HOME/.local/share/backgrounds/mountains.jpg fill
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output HDMI-A-1 position 0 180
@@ -37,7 +37,6 @@ bindsym $mod+Shift+c reload
 
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-
 
 # Move your focus around
 bindsym $mod+$left focus left
@@ -122,9 +121,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # sound control
-bindsym XF86AudioMute exec amixer set Master toggle
-bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
-bindsym XF86AudioLowerVolume exec amixer -q sset Master 1%-
+bindsym XF86AudioMute        exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
 
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
@@ -148,40 +147,69 @@ bindsym Print mode "$screenshot"
 bindsym $mod+Shift+S mode "$screenshot"
 
 # lockscreen
-bindsym $mod+Shift+p exec swaylock -f
+bindsym $mod+Shift+p exec swaylock -f -c 000000
 
 # Automcatically lock screen
 exec swayidle -w\
-    timeout 600 'swaylock -f'\
-    timeout 10 'if pgrep swaylock; then swaymsg "output * dpms off"; fi'\
+    timeout 600 'swaylock -f -c 000000'\
+    timeout 10 'if pgrep swaylock -c 000000; then swaymsg "output * dpms off"; fi'\
     resume 'swaymsg "output * dpms on"'\
     timeout 1200 'systemctl suspend'\
-    before-sleep 'swaylock -f'
+    before-sleep 'swaylock -f -c 000000'
 
 # style
 
 # font
 font jetbrainsmononerdfont 11
 
-client.focused          #88c0d0 #434c5e #eceff4 #8fbcbb #88c0d0
-client.focused_inactive #88c0d0 #2e3440 #d8dee9 #4c566a #4c566a
-client.unfocused        #88c0d0 #2e3440 #d8dee9 #4c566a #4c566a
-client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb #ebcb8b
+set $rosewater #f4dbd6
+set $flamingo #f0c6c6
+set $pink #f5bde6
+set $mauve #c6a0f6
+set $red #ed8796
+set $maroon #ee99a0
+set $peach #f5a97f
+set $yellow #eed49f
+set $green #a6da95
+set $teal #8bd5ca
+set $sky #91d7e3
+set $sapphire #7dc4e4
+set $blue #8aadf4
+set $lavender #b7bdf8
+set $text #cad3f5
+set $subtext1 #b8c0e0
+set $subtext0 #a5adcb
+set $overlay2 #939ab7
+set $overlay1 #8087a2
+set $overlay0 #6e738d
+set $surface2 #5b6078
+set $surface1 #494d64
+set $surface0 #363a4f
+set $base #24273a
+set $mantle #1e2030
+set $crust #181926
 
-# Status Bar:
-# Read `man 5 sway-bar` for more information about this section.
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $blue      $blue
+client.focused_inactive  $overlay0 $base $text  $blue      $overlay0
+client.unfocused         $overlay0 $base $text  $blue      $overlay0
+client.urgent            $blue     $base $blue  $overlay0  $blue
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
+# bar
 bar {
     colors {
-        background         #2e3440
-        statusline         #d8dee9
-        focused_statusline #d8dee9
-        focused_separator  #2e3440
+        background         $base
+        statusline         $text
+        focused_statusline $text
+        focused_separator  $base
 
-        # target           border  bg      text
-        focused_workspace  #2e3440 #88c0d0 #2e3440
-        active_workspace   #2e3440 #2e3440 #d8dee9
-        inactive_workspace #2e3440 #2e3440 #d8dee9
-        urgent_workspace   #2e3440 #2e3440 #d8dee9
+        # target           border bg        text
+        focused_workspace  $base  $blue    $crust
+        active_workspace   $base  $surface2 $text
+        inactive_workspace $base  $base     $text
+        urgent_workspace   $base  $red      $crust
     }
     status_command $HOME/.config/sway/bar.sh
 }
