@@ -2,7 +2,7 @@
     "position": "bottom", 
     "height": 30,
     "modules-left": ["sway/workspaces"],
-    "modules-right": ["pulseaudio", "custom/date", "clock", "custom/power"],
+    "modules-right": ["pulseaudio", "custom/date", "clock", "tray", "custom/power"],
 	"sway/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,
@@ -13,7 +13,7 @@
 		"on-click": "wlogout"
 	},
 	"clock": {
-		"format": "󰅐 {:%H:%M 󰸗 %d-%m-%Y}",
+		"format": "󰅐 {:%H:%M  󰸗 %d-%m-%Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
 	},
 	"pulseaudio": {
@@ -29,5 +29,9 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
     }
 }

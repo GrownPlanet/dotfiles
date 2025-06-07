@@ -10,8 +10,8 @@ window {
 button {
     border-radius: 25;
     border-color: black;
-    color: #eceff4;
-	background-color: #4c566a;
+    color: #cad3f5;
+	background-color: #24273a;
 	border-style: solid;
 	border-width: 1px;
 	background-repeat: no-repeat;
@@ -20,8 +20,8 @@ button {
 }
 
 button:focus, button:active, button:hover {
-	background-color: #88c0d0;
-    color: #2e3440;
+	background-color: #8aadf4;
+    color: #24273a;
 	outline-style: none;
 }
 

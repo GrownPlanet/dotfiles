@@ -33,7 +33,6 @@ require("lazy").setup({
     -- color schemes
     { 'navarasu/onedark.nvim' },
     { 'catppuccin/nvim' },
-    { 'shaunsingh/nord.nvim' },
     -- status bar
     {
         'nvim-lualine/lualine.nvim',
@@ -112,4 +111,6 @@ require("lazy").setup({
     { 'hrsh7th/cmp-nvim-lsp' },
     -- tmux
     { 'christoomey/vim-tmux-navigator' },
+    -- transparent bg
+    { 'xiyaowong/transparent.nvim' },
 })
