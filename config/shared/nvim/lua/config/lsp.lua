@@ -7,16 +7,9 @@ end)
 -- add code actions
 vim.keymap.set('n', '<leader>ca', function() vim.lsp.buf.code_action() end)
 
-require("mason-lspconfig").setup {
-    ensure_installed = {
-        "lua_ls",
-        "pyright",
-    },
-}
-
 -- here you can setup the language servers
 vim.lsp.enable('rust_analyzer')
-vim.lsp.enable('lua_ls')
+vim.lsp.enable('pyright')
 
 -- autocomplete
 local cmp = require('cmp')
