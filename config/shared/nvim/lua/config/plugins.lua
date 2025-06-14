@@ -1,7 +1,7 @@
 return {
     -- fuzzy finder
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.6',
+        'nvim-telescope/telescope.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     -- auto close brackets
@@ -71,10 +71,12 @@ return {
             require("luasnip.loaders.from_vscode").lazy_load()
         end,
     },
+    -- completion
     {
         'hrsh7th/nvim-cmp',
         dependencies = { 'saadparwaiz1/cmp_luasnip' }
     },
+    -- completions from current buffer
     { 'hrsh7th/cmp-buffer' },
     -- treesitter
     {
@@ -88,7 +90,7 @@ return {
             highlight = { enable = true },
             indent = { enable = true },
             ensure_installed = {
-                "bash", "c", "cpp", "lua", "markdown", "toml", "rust", "ocaml", "zig", "json"
+                "bash", "c", "cpp", "lua", "markdown", "toml", "rust", "json"
             }
         },
         config = function(_, opts)
@@ -114,7 +116,6 @@ return {
             require("mason").setup()
         end,
     },
-    { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
     { 'neovim/nvim-lspconfig' },
     { 'hrsh7th/cmp-nvim-lsp' },
     -- tmux

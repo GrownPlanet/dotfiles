@@ -1,7 +1,3 @@
--- cursor
--- vim.o.guicursor= "n-v-c:hor25,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
-vim.o.cursorline = true
-
 -- no wrapping 
 vim.o.wrap = false
 
@@ -15,7 +11,7 @@ vim.o.smartcase = true
 vim.o.incsearch = true
 vim.o.hlsearch = false
 
--- spaces
+-- spaces instead of tabs
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
@@ -24,13 +20,22 @@ vim.o.scrolloff = 8
 
 vim.o.autoindent = true
 
-vim.o.signcolumn = 'yes:2'
-
 -- line at the 100th column
 vim.o.colorcolumn = '100'
 
 -- truecolor
 vim.o.termguicolors = true
+vim.cmd('colorscheme catppuccin-macchiato')
 
--- spellcheck
--- vim.o.spell = true
+-- make columns less jumpy
+vim.o.signcolumn = 'yes:1'
+
+-- for taking notes
+function notes()
+    vim.o.wrap = true
+    vim.o.linebreak = true
+    vim.o.columns = 100
+    vim.o.spell = true
+    vim.o.spelllang = "en,nl"
+    vim.o.colorcolumn = ""
+end

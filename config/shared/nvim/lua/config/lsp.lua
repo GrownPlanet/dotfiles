@@ -1,39 +1,50 @@
-local lsp_zero = require('lsp-zero')
+-- LSP keymaps on attach
+local on_attach = function(_, bufnr)
+    local opts = { buffer = bufnr }
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
+    vim.keymap.set({'n', 'x'}, '<F3>', function() vim.lsp.buf.format { async = true } end, opts)
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+end
 
-lsp_zero.on_attach(function(_, bufnr)
-    lsp_zero.default_keymaps({buffer = bufnr})
-end)
+-- Setup capabilities for nvim-cmp
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- add code actions
-vim.keymap.set('n', '<leader>ca', function() vim.lsp.buf.code_action() end)
+-- Setup language servers
+require('lspconfig').rust_analyzer.setup { on_attach = on_attach, capabilities = capabilities }
+require('lspconfig').pyright.setup { on_attach = on_attach, capabilities = capabilities }
+require('lspconfig').lua_ls.setup { on_attach = on_attach, capabilities = capabilities }
 
--- here you can setup the language servers
-vim.lsp.enable('rust_analyzer')
-vim.lsp.enable('pyright')
+-- Diagnostic config
+vim.diagnostic.config({ virtual_text = {} })
 
--- autocomplete
+-- nvim-cmp setup
 local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
-
--- show error message behind the line
-vim.diagnostic.config({ virtual_text = {}, })
-
 cmp.setup({
     sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'buffer' },
     },
-
     mapping = cmp.mapping.preset.insert({
-        ['<CR>'] = cmp.mapping.confirm({select = false}),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<Up>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
-        ['<Down>'] = cmp.mapping.select_next_item({behavior = 'select'}),
-        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-d>'] = cmp.mapping.scroll_docs(4),
-        ['<Tab>'] = cmp_action.tab_complete(),
-        ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
     }),
     snippet = {
         expand = function(args)
