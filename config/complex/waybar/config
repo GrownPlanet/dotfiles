@@ -1,8 +1,8 @@
 {
     "position": "bottom", 
     "height": 30,
-    "modules-left": ["sway/workspaces"],
-    "modules-center": ["sway/window"],
+    "modules-left": ["sway/workspaces", "river/tags"],
+    "modules-center": ["sway/window", "river/window"],
     "modules-right": ["pulseaudio", "custom/date", "clock", "tray", "custom/power"],
 	"sway/workspaces": {
 		"disable-scroll": true,

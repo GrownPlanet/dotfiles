@@ -1,86 +1,55 @@
 return {
     -- fuzzy finder
     {
-        'nvim-telescope/telescope.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim' }
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" }
     },
     -- auto close brackets
     {
-        'm4xshen/autoclose.nvim',
-        init = function ()
-            require("autoclose").setup()
-        end,
+        "m4xshen/autoclose.nvim",
+        event = "InsertEnter",
+        config = true,
     },
     -- color schemes
-    { 'catppuccin/nvim' },
+    { "catppuccin/nvim" },
     -- status bar
     {
-        'nvim-lualine/lualine.nvim',
+        "nvim-lualine/lualine.nvim",
         init = function ()
-            require('lualine').setup({
+            require("lualine").setup({
                 options = {
                     icons_enabled = false,
-                    component_separators = '',
-                    section_separators = '',
+                    component_separators = "",
+                    section_separators = "",
                 },
             })
         end,
     },
     -- icons
-    { 'nvim-tree/nvim-web-devicons' },
+    { "nvim-tree/nvim-web-devicons" },
     -- gitsigns
     {
-        'lewis6991/gitsigns.nvim',
+        "lewis6991/gitsigns.nvim",
         init = function ()
-            require('gitsigns').setup()
+            require("gitsigns").setup()
         end
     },
     -- comments 
     {
-        'numToStr/Comment.nvim',
+        "numToStr/Comment.nvim",
         config = function()
-            require('Comment').setup({ toggler = { line = '<C-c>' } })
+            require("Comment").setup({ toggler = { line = "<C-c>" } })
         end,
     },
-    -- transparent bg
-    { 'xiyaowong/transparent.nvim' },
     -- markdown/ notes
-    {
-        "lervag/wiki.vim",
-        ft = "markdown",
-        init = function()
-            vim.g.wiki_root = "~/Sync/notes"
-        end
-    },
-    {
-        "MeanderingProgrammer/render-markdown.nvim",
-        ft = "markdown",
-        config = function()
-            require('render-markdown').setup({
-                render_modes = { 'n', 'c', 't', 'i' },
-                heading = { sign = false },
-                code = { sign = false },
-            })
-        end,
-    },
-    -- snippets
-    {
-        'L3MON4D3/LuaSnip',
-        dependencies = { "rafamadriz/friendly-snippets" },
-        config = function ()
-            require("luasnip.loaders.from_vscode").lazy_load()
-        end,
-    },
+    { "lervag/wiki.vim", ft = "markdown" },
     -- completion
-    {
-        'hrsh7th/nvim-cmp',
-        dependencies = { 'saadparwaiz1/cmp_luasnip' }
-    },
+    { "hrsh7th/nvim-cmp", },
     -- completions from current buffer
-    { 'hrsh7th/cmp-buffer' },
+    { "hrsh7th/cmp-buffer" },
     -- treesitter
     {
-        'nvim-treesitter/nvim-treesitter',
+        "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         init = function()
             require("nvim-treesitter.query_predicates")
@@ -108,16 +77,14 @@ return {
         end,
     },
     -- context
-    { 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
+    { "https://github.com/nvim-treesitter/nvim-treesitter-context" },
     -- lsp 
     {
-        'williamboman/mason.nvim',
+        "williamboman/mason.nvim",
         init = function ()
             require("mason").setup()
         end,
     },
-    { 'neovim/nvim-lspconfig' },
-    { 'hrsh7th/cmp-nvim-lsp' },
-    -- tmux
-    { 'christoomey/vim-tmux-navigator' },
+    { "neovim/nvim-lspconfig" },
+    { "hrsh7th/cmp-nvim-lsp" },
 };

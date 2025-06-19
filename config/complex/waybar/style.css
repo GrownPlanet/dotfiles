@@ -11,19 +11,19 @@ window#waybar {
     color: white;
 }
 
-#workspaces {
+#workspaces, #tags {
 	background-color: #363a4f;
 	margin: 5px;
 	margin-left: 10px;
 	border-radius: 5px;
 }
 
-#workspaces button {
+#workspaces, #tags button {
     padding: 0 10px;
     color: #cad3f5;
 }
 
-#workspaces button.focused {
+#workspaces, #tags button.focused {
     color: #24273a;
     background-color: #8aadf4;
     border-radius: 5px;
