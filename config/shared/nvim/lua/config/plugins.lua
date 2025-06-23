@@ -4,12 +4,6 @@ return {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" }
     },
-    -- auto close brackets
-    {
-        "m4xshen/autoclose.nvim",
-        event = "InsertEnter",
-        config = true,
-    },
     -- color schemes
     { "catppuccin/nvim" },
     -- status bar
@@ -33,13 +27,6 @@ return {
         init = function ()
             require("gitsigns").setup()
         end
-    },
-    -- comments 
-    {
-        "numToStr/Comment.nvim",
-        config = function()
-            require("Comment").setup({ toggler = { line = "<C-c>" } })
-        end,
     },
     -- markdown/ notes
     { "lervag/wiki.vim", ft = "markdown" },

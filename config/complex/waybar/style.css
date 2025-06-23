@@ -11,19 +11,37 @@ window#waybar {
     color: white;
 }
 
-#workspaces, #tags {
+#workspaces {
 	background-color: #363a4f;
 	margin: 5px;
 	margin-left: 10px;
 	border-radius: 5px;
 }
 
-#workspaces, #tags button {
+#workspaces button {
     padding: 0 10px;
     color: #cad3f5;
 }
 
-#workspaces, #tags button.focused {
+#workspaces button.focused {
+    color: #24273a;
+    background-color: #8aadf4;
+    border-radius: 5px;
+}
+
+#tags {
+	background-color: #363a4f;
+	margin: 5px;
+	margin-left: 10px;
+	border-radius: 5px;
+}
+
+#tags button {
+    padding: 0 10px;
+    color: #cad3f5;
+}
+
+#tags button.focused {
     color: #24273a;
     background-color: #8aadf4;
     border-radius: 5px;
