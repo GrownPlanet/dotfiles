@@ -1,0 +1,51 @@
+#
+# variables
+#
+
+set $menu dmenu_run -m 1 -nb '#24273A' -nf '#CAD3F5' -sb '#8AADF4' -sf '#24273A'
+
+#
+# style
+#
+
+# colors
+set $red #ed8796
+set $blue #8aadf4
+set $lavender #b7bdf8
+set $text #cad3f5
+set $overlay0 #6e738d
+set $surface2 #5b6078
+set $base #24273a
+set $crust #181926
+
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $blue      $blue
+client.focused_inactive  $overlay0 $base $text  $blue      $overlay0
+client.unfocused         $overlay0 $base $text  $blue      $overlay0
+client.urgent            $blue     $base $blue  $overlay0  $blue
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
+# status bar
+bar {
+    colors {
+        background         $base
+        statusline         $text
+        focused_statusline $text
+        focused_separator  $base
+
+        # target           border bg        text
+        focused_workspace  $base  $blue     $crust
+        active_workspace   $base  $surface2 $text
+        inactive_workspace $base  $base     $text
+        urgent_workspace   $base  $red      $crust
+    }
+    status_command $HOME/.config/sway/bar.sh
+}
+
+#
+# keybindings
+#
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'

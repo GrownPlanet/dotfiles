@@ -1,0 +1,43 @@
+#
+# variables
+#
+
+set $menu fuzzel
+
+#
+# style
+#
+
+# border
+default_border pixel 2
+titlebar_border_thickness 2
+
+# gaps
+gaps outer 5
+gaps inner 5
+
+# colors
+set $blue #8aadf4
+set $text #cad3f5
+set $overlay0 #6e738d
+set $base #24273a
+
+# target                 title     bg    text   indicator  border
+client.focused           $blue     $base $text  $blue      $blue
+client.focused_inactive  $overlay0 $base $text  $overlay0  $overlay0
+client.unfocused         $overlay0 $base $text  $blue      $overlay0
+client.urgent            $blue     $base $blue  $overlay0  $blue
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
+# status bar
+bar {
+    swaybar_command waybar
+}
+
+#
+# keybindings
+#
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec wlogout

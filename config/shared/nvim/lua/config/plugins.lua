@@ -9,7 +9,7 @@ return {
     -- status bar
     {
         "nvim-lualine/lualine.nvim",
-        init = function ()
+        init = function()
             require("lualine").setup({
                 options = {
                     icons_enabled = false,
@@ -18,6 +18,12 @@ return {
                 },
             })
         end,
+    },
+    -- auto pair brackets
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
     },
     -- icons
     { "nvim-tree/nvim-web-devicons" },

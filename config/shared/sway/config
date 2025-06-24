@@ -1,5 +1,16 @@
 # Read `man 5 sway` for a complete reference.
+
 set $mod Mod4
+
+#
+# type of config
+#
+include ./complex
+# include ./simple
+
+#
+# variables
+#
 
 set $left h
 set $down j
@@ -7,18 +18,44 @@ set $up k
 set $right l
 
 set $term    alacritty
-# change if necessary
 set $browser librewolf
 
-set $menu dmenu_run -m 1 -nb '#24273A' -nf '#CAD3F5' -sb '#8AADF4' -sf '#24273A'
+#
+# input/output
+#
 
 output * bg $HOME/.local/share/backgrounds/mountains.jpg fill
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output HDMI-A-1 position 0 180
 output DP-1 position 1920 0
+# or kanshi
+# exec kanshi
 
-# Start a terminal
+input type:keyboard {
+    # switch keyboard layout
+    # xkb_layout be
+    # rebind capslock as escape
+    xkb_options caps:escape
+}
+
+# start openrgb
+exec "openrgb -c ffffff"
+
+# notifications
+exec mako
+
+# cursor
+seat * xcursor_theme Bibata-Modern-Classic 20
+
+# font
+font jetbrainsmononerdfont 11
+
+#
+# keybindings
+#
+
+# Start a terminal or browser
 bindsym $mod+Return exec $term
 bindsym $mod+i exec $browser
 
@@ -34,9 +71,6 @@ floating_modifier $mod normal
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
-
-# Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 # Move your focus around
 bindsym $mod+$left focus left
@@ -74,6 +108,31 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
+# with azerty
+# Switch to workspace
+# bindsym $mod+ampersand workspace number 1
+# bindsym $mod+eacute workspace number 2
+# bindsym $mod+quotedbl workspace number 3
+# bindsym $mod+apostrophe workspace number 4
+# bindsym $mod+parenleft workspace number 5
+# bindsym $mod+section workspace number 6
+# bindsym $mod+egrave workspace number 7
+# bindsym $mod+exclam workspace number 8
+# bindsym $mod+ccedilla workspace number 9
+# bindsym $mod+agrave workspace number 10
+
+# Move focused container to workspace
+# bindsym $mod+Shift+ampersand  move container to workspace number 1
+# bindsym $mod+Shift+eacute  move container to workspace number 2
+# bindsym $mod+Shift+quotedbl  move container to workspace number 3
+# bindsym $mod+Shift+apostrophe  move container to workspace number 4
+# bindsym $mod+Shift+parenleft  move container to workspace number 5
+# bindsym $mod+Shift+section  move container to workspace number 6
+# bindsym $mod+Shift+egrave  move container to workspace number 7
+# bindsym $mod+Shift+exclam  move container to workspace number 8
+# bindsym $mod+Shift+ccedilla  move container to workspace number 9
+# bindsym $mod+Shift+agrave  move container to workspace number 10
+
 # Vertical or horizontal split
 bindsym $mod+b splith
 bindsym $mod+v splitv
@@ -91,9 +150,6 @@ bindsym $mod+Shift+space floating toggle
 # Swap focus between the tiling area and the floating area
 bindsym $mod+space focus mode_toggle
 
-# Move focus to the parent container
-bindsym $mod+a focus parent
-
 # Sway has a "scratchpad", which is a bag of holding for windows.
 # You can send windows there and get them back later.
 
@@ -104,6 +160,7 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+# resize windows
 mode "resize" {
     # left will shrink the containers width
     bindsym $left resize shrink width 10px
@@ -114,20 +171,45 @@ mode "resize" {
     # down will grow the containers height
     bindsym $down resize grow height 10px
 
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
     # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
 
-# sound control
+#
+# locking
+#
+
+# lockscreen
+bindsym $mod+Shift+p exec swaylock -f
+
+# Automcatically lock screen
+exec swayidle -w\
+    timeout 600 'swaylock -f'\
+    timeout 10 'if pgrep swaylock; then swaymsg "output * dpms off"; fi'\
+    resume 'swaymsg "output * dpms on"'\
+    timeout 1200 'systemctl suspend'\
+    before-sleep 'swaylock -f'
+
+
+#
+# audio control
+#
+
 bindsym XF86AudioMute        exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
 
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl prev
+bindsym XF86AudioPrev exec playerctl previous
 
 #
 # Screen capture
@@ -136,8 +218,8 @@ set $screenshot 1 selected, 2 whole
 mode "$screenshot" {
     bindsym 1 exec 'grim -g "$(slurp)" ~/Pictures/Screenshots/ps_$(date +"%Y%m%d%H%M%S").png; wl-copy < ~/Pictures/Screenshots/ps_$(date +"%Y%m%d%H%M%S").png', mode "default"
     bindsym 2 exec 'grim ~/Pictures/Screenshots/ps_$(date +"%Y%m%d%H%M%S").png; wl-copy < ~/Pictures/Screenshots/ps_$(date +"%Y%m%d%H%M%S").png', mode "default"
-    
-# back to normal: Enter or Escape
+
+    # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $mod+Print mode "default"
@@ -145,82 +227,5 @@ mode "$screenshot" {
 
 bindsym Print mode "$screenshot"
 bindsym $mod+Shift+S mode "$screenshot"
-
-# lockscreen
-bindsym $mod+Shift+p exec swaylock -f -c 000000
-
-# Automcatically lock screen
-exec swayidle -w\
-    timeout 600 'swaylock -f -c 000000'\
-    timeout 10 'if pgrep swaylock -c 000000; then swaymsg "output * dpms off"; fi'\
-    resume 'swaymsg "output * dpms on"'\
-    timeout 1200 'systemctl suspend'\
-    before-sleep 'swaylock -f -c 000000'
-
-# style
-
-# font
-font jetbrainsmononerdfont 11
-
-set $rosewater #f4dbd6
-set $flamingo #f0c6c6
-set $pink #f5bde6
-set $mauve #c6a0f6
-set $red #ed8796
-set $maroon #ee99a0
-set $peach #f5a97f
-set $yellow #eed49f
-set $green #a6da95
-set $teal #8bd5ca
-set $sky #91d7e3
-set $sapphire #7dc4e4
-set $blue #8aadf4
-set $lavender #b7bdf8
-set $text #cad3f5
-set $subtext1 #b8c0e0
-set $subtext0 #a5adcb
-set $overlay2 #939ab7
-set $overlay1 #8087a2
-set $overlay0 #6e738d
-set $surface2 #5b6078
-set $surface1 #494d64
-set $surface0 #363a4f
-set $base #24273a
-set $mantle #1e2030
-set $crust #181926
-
-# target                 title     bg    text   indicator  border
-client.focused           $lavender $base $text  $blue      $blue
-client.focused_inactive  $overlay0 $base $text  $blue      $overlay0
-client.unfocused         $overlay0 $base $text  $blue      $overlay0
-client.urgent            $blue     $base $blue  $overlay0  $blue
-client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
-client.background        $base
-
-# bar
-bar {
-    colors {
-        background         $base
-        statusline         $text
-        focused_statusline $text
-        focused_separator  $base
-
-        # target           border bg        text
-        focused_workspace  $base  $blue    $crust
-        active_workspace   $base  $surface2 $text
-        inactive_workspace $base  $base     $text
-        urgent_workspace   $base  $red      $crust
-    }
-    status_command $HOME/.config/sway/bar.sh
-}
-
-# (open)rgb, because the settings in openrgb only work on gnome, for some reason
-exec "openrgb -c FFFFFF"
-
-# notifications
-exec mako
-
-# cursor
-seat * xcursor_theme Bibata-Modern-Classic 20
 
 include /etc/sway/config.d/*

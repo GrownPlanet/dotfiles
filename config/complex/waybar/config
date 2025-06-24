@@ -3,7 +3,7 @@
     "height": 30,
     "modules-left": ["sway/workspaces", "river/tags"],
     "modules-center": ["sway/window", "river/window"],
-    "modules-right": ["pulseaudio", "custom/date", "clock", "tray", "custom/power"],
+    "modules-right": ["pulseaudio", "battery", "clock", "tray", "custom/power"],
 	"sway/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,
@@ -34,5 +34,9 @@
     "tray": {
         "icon-size": 21,
         "spacing": 10
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["󱊡", "󱊢", "󱊣"]
     }
 }
