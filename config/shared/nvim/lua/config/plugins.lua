@@ -21,7 +21,7 @@ return {
     },
     -- auto pair brackets
     {
-        'windwp/nvim-autopairs',
+        "windwp/nvim-autopairs",
         event = "InsertEnter",
         config = true
     },

@@ -29,24 +29,6 @@ window#waybar {
     border-radius: 5px;
 }
 
-#tags {
-	background-color: #363a4f;
-	margin: 5px;
-	margin-left: 10px;
-	border-radius: 5px;
-}
-
-#tags button {
-    padding: 0 10px;
-    color: #cad3f5;
-}
-
-#tags button.focused {
-    color: #24273a;
-    background-color: #8aadf4;
-    border-radius: 5px;
-}
-
 #workspaces button:hover {
 	background-color: #5e81ac;
 	border-radius: 5px;
@@ -57,6 +39,14 @@ window#waybar {
 	background-color: #363a4f;
 	padding: 0px 10px;
 	margin: 5px 0px;
+}
+
+#mode {
+	color: #ed8796;
+	background-color: #363a4f;
+	padding: 0px 10px;
+	margin: 5px 0px;
+    border-radius: 5px;
 }
 
 #custom-power {

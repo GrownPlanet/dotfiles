@@ -18,6 +18,7 @@ require("lspconfig").rust_analyzer.setup { on_attach = on_attach, capabilities =
 require("lspconfig").pyright.setup { on_attach = on_attach, capabilities = capabilities }
 require("lspconfig").lua_ls.setup { on_attach = on_attach, capabilities = capabilities }
 require("lspconfig").zls.setup { on_attach = on_attach, capabilities = capabilities }
+require("lspconfig").ocamllsp.setup { on_attach = on_attach, capabilities = capabilities }
 
 -- Diagnostic config
 vim.diagnostic.config({ virtual_text = {} })
