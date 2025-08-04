@@ -9,17 +9,17 @@ if [ -z "$pkg_manager" ] || [ -z "$mode" ]; then
 fi
 
 # general packages
-sudo "$pkg_manager" install unzip fish sway waybar swaylock fuzzel neovim tmux alacritty celluloid mako grim slurp wl-clipboard wlogout playerctl
+sudo "$pkg_manager" install unzip fish sway waybar swaylock fuzzel neovim tmux alacritty celluloid mako grim slurp wl-clipboard wlogout playerctl imv
 
 # backgrounds/ wallpapers
 if [ ! -d "$HOME/.local/share/backgrounds" ]; then
-    mkdir "$HOME/.local/share/backgrounds"
+    mkdir -p "$HOME/.local/share/backgrounds"
 fi
 cp ./assets/imgs/* ~/.local/share/backgrounds/
 
 # fonts
 if [ ! -d "$HOME/.local/share/fonts/JetBrainsMono" ]; then
-    mkdir ~/.local/share/fonts/
+    mkdir -p ~/.local/share/fonts/
     wget -O JetBrainsMono.zip "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip"
     unzip ./JetBrainsMono.zip -d ~/.local/share/fonts/JetBrainsMono
     rm ./JetBrainsMono.zip
@@ -60,6 +60,6 @@ fi
 
 # cursor
 if [ ! -d "$HOME/.local/share/icons/Bibata-Modern-Classic" ]; then
-    mkdir ~/.local/share/icons/Bibata-Modern-Classic
+    mkdir -p ~/.local/share/icons/Bibata-Modern-Classic
     tar -xf ./assets/cursors/Bibata-Modern-Classic.tar.xz -C ~/.local/share/icons/
 fi
