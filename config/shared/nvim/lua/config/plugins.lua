@@ -73,8 +73,6 @@ return {
             require("nvim-treesitter.configs").setup(opts)
         end,
     },
-    -- context
-    { "https://github.com/nvim-treesitter/nvim-treesitter-context" },
     -- lsp 
     {
         "williamboman/mason.nvim",
