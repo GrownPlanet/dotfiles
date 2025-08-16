@@ -1,0 +1,48 @@
+# options
+colorscheme catppuccin_macchiato
+
+set-option global tabstop 4
+set-option global indentwidth 4
+map global insert <tab> <space><space><space><space>
+
+set-option global scrolloff 8,3
+
+add-highlighter global/ number-lines -relative -hlcursor
+
+hook global BufSetOption filetype=ocaml %{
+    set-option global tabstop 2
+    set-option global indentwidth 2
+    map global insert <tab> <space><space>
+}
+
+# mappings
+map global user y "<a-|>wl-copy<ret>" -docstring "yank to clipboard"
+map global user p "<a-!>wl-paste<ret>" -docstring "paste from clipboard"
+
+map global normal "/" "/(?i)"
+
+# plugins
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+plug "andreyorst/plug.kak" noload
+
+plug "andreyorst/fzf.kak" config %{
+    map global user f ":fzf-mode<ret>f" -docstring "find file"
+    map global user g ":fzf-mode<ret>g" -docstring "grep string"
+    map global user b ":fzf-mode<ret>b" -docstring "find buffer"
+    map global user s ":fzf-mode<ret>" -docstring "fzf mode"
+} defer fzf-file %{
+    set-option global fzf_file_command "fd"
+    set-option global fzf_highlight_command "bat --color=always --theme=Coldark-Dark --style=plain {}"
+} defer fzf-grep %{
+    set-option global fzf_grep_command "rg"
+}
+
+plug "alexherbo2/auto-pairs.kak"
+enable-auto-pairs
+
+# lsp
+eval %sh{kak-lsp}
+lsp-enable
+
+map global user l ":enter-user-mode lsp<ret>" -docstring "LSP mode"
+map global object e "<a-semicolon>lsp-diagnostic-object<ret>" -docstring "LSP errors"

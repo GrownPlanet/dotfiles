@@ -9,7 +9,9 @@ if [ -z "$pkg_manager" ] || [ -z "$mode" ]; then
 fi
 
 # general packages
-sudo "$pkg_manager" install unzip fish sway waybar swaylock fuzzel neovim tmux alacritty celluloid mako grim slurp wl-clipboard wlogout playerctl imv
+sudo "$pkg_manager" install \
+    fish unzip neovim tmux wl-clipboard kakoune \
+    sway waybar swaylock fuzzel alacritty celluloid mako grim slurp wlogout playerctl imv
 
 # backgrounds/ wallpapers
 if [ ! -d "$HOME/.local/share/backgrounds" ]; then
@@ -56,6 +58,12 @@ done
 # tmux tpm
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+# kakoune plugins
+if [ ! -d "$HOME/.config/kak/plugins" ]; then
+    mkdir -p $HOME/.config/kak/plugins
+    git clone https://github.com/andreyorst/plug.kak.git $HOME/.config/kak/plugins/plug.kak
 fi
 
 # cursor
