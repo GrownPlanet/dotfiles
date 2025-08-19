@@ -10,7 +10,7 @@ fi
 
 # general packages
 sudo "$pkg_manager" install \
-    fish unzip neovim tmux wl-clipboard kakoune \
+    fish unzip neovim tmux wl-clipboard kakoune fd rg \
     sway waybar swaylock fuzzel alacritty celluloid mako grim slurp wlogout playerctl imv
 
 # backgrounds/ wallpapers

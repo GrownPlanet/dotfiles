@@ -8,6 +8,9 @@ set $menu fuzzel
 # style
 #
 
+# font
+font jetbrainsmononerdfont 0.001
+
 # border
 default_border pixel 2
 titlebar_border_thickness 2

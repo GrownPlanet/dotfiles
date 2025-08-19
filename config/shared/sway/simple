@@ -2,11 +2,18 @@
 # variables
 #
 
-set $menu dmenu_run -m 1 -nb '#24273A' -nf '#CAD3F5' -sb '#8AADF4' -sf '#24273A'
+set $menu wmenu-run
 
 #
 # style
 #
+
+# font
+font jetbrainsmononerdfont 11
+
+# border
+default_border pixel 2
+titlebar_border_thickness 2
 
 # colors
 set $red #ed8796
