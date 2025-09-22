@@ -24,7 +24,7 @@ set $browser librewolf
 # input/output
 #
 
-# output * bg $HOME/.local/share/backgrounds/mountains_catppuccin.png fill
+# output * bg $HOME/.local/share/backgrounds/catppuccin_triangle.png fill
 output * bg $HOME/.local/share/backgrounds/mountains.jpg fill
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
@@ -145,8 +145,9 @@ bindsym $mod+Shift+p exec swaylock -f
 
 # Automcatically lock screen
 exec swayidle -w \
-    timeout 600 'swaylock -f'\
-    timeout 1200 'systemctl suspend'
+    timeout 600 "swaylock -f"\
+    timeout 1200 "systemctl suspend"\
+    resume "openrgb -c ffffff"
 
 #
 # audio control

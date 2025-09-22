@@ -18,6 +18,7 @@ hook global BufSetOption filetype=ocaml %{
 
 hook global BufSetOption filetype=markdown %{
     add-highlighter buffer/ regex '\[([^\n]*?)\]\(([^\n]*?)\)' 0:mdlink 2:link
+    add-highlighter buffer/ regex "\[x\]" 0:green
     add-highlighter buffer/ regex "DONE" 0:green
     add-highlighter buffer/ regex "WONTDO" 0:red
     add-highlighter buffer/ regex "TODO" 0:yellow
@@ -29,9 +30,6 @@ map global user p "<a-!>wl-paste<ret>" -docstring "paste from clipboard"
 map global user u "<a-|>xargs xdg-open<ret>" -docstring "follow url"
 
 map global normal "/" "/(?i)"
-
-# hook global InsertCompletionShow .* %{ map window insert <tab> <c-n>; map window insert <s-tab> <c-p> }
-# hook global InsertCompletionHide .* %{ unmap window insert <tab> <c-n>; unmap window insert <s-tab> <c-p> }
 
 map global normal "#" ":comment-line<ret>"
 
@@ -62,7 +60,6 @@ eval %sh{kak-lsp}
 lsp-enable
 
 map global user l ":enter-user-mode lsp<ret>" -docstring "LSP mode"
-map global object e "<a-semicolon>lsp-diagnostic-object<ret>" -docstring "LSP errors"
 
 # smooth wrapping
 plug "grownplanet/smoothwrap.kak" config %{
