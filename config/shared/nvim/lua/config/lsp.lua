@@ -14,11 +14,11 @@ end
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Setup language servers
-require("lspconfig").rust_analyzer.setup { on_attach = on_attach, capabilities = capabilities }
-require("lspconfig").pyright.setup { on_attach = on_attach, capabilities = capabilities }
-require("lspconfig").lua_ls.setup { on_attach = on_attach, capabilities = capabilities }
-require("lspconfig").zls.setup { on_attach = on_attach, capabilities = capabilities }
-require("lspconfig").ocamllsp.setup { on_attach = on_attach, capabilities = capabilities }
+local servers = {"rust_analyzer", "pyright", "ocamllsp", "marksman"}
+for i, server in ipairs(servers) do
+    vim.lsp.config(server, { on_attach = on_attach, capabilities = capabilities })
+    vim.lsp.enable(server)
+end
 
 -- Diagnostic config
 vim.diagnostic.config({ virtual_text = {} })
@@ -28,7 +28,6 @@ local cmp = require("cmp")
 cmp.setup({
     sources = {
         { name = "nvim_lsp" },
-        -- { name = "luasnip" },
         { name = "buffer" },
     },
     mapping = cmp.mapping.preset.insert({
@@ -48,10 +47,5 @@ cmp.setup({
             end
         end, { "i", "s" }),
     }),
-    -- snippet = {
-    --     expand = function(args)
-    --         require("luasnip").lsp_expand(args.body)
-    --     end,
-    -- },
 })
 

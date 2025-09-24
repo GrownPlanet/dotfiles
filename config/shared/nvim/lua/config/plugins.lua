@@ -31,15 +31,6 @@ return {
     },
     -- icons
     { "nvim-tree/nvim-web-devicons" },
-    -- gitsigns
-    {
-        "lewis6991/gitsigns.nvim",
-        init = function ()
-            require("gitsigns").setup()
-        end
-    },
-    -- markdown/ notes
-    { "lervag/wiki.vim", ft = "markdown" },
     -- completion
     { "hrsh7th/nvim-cmp", },
     -- completions from current buffer
