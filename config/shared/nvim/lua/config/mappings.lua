@@ -26,3 +26,7 @@ map("n", "J", "mzJ`z")
 
 -- void replace
 map("x", "<leader>rp", "\"_dP")
+
+-- buffers
+map("n", "gn", ":bn<CR>")
+map("n", "gb", ":bb<CR>")

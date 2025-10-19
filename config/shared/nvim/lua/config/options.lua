@@ -20,15 +20,12 @@ vim.o.scrolloff = 8
 
 vim.o.autoindent = true
 
--- line at the 100th column
-vim.o.colorcolumn = "100"
+-- line at the 80th column
+vim.o.colorcolumn = "80"
 
 -- truecolor
 vim.o.termguicolors = true
 vim.cmd("colorscheme catppuccin-macchiato")
-
--- make columns less jumpy
-vim.o.signcolumn = "yes:1"
 
 -- for taking notes
 function Notes()
@@ -39,8 +36,10 @@ function Notes()
     vim.o.spelllang = "en,nl"
     vim.o.spellcapcheck = ""
     vim.o.colorcolumn = ""
+    vim.o.tabstop = 2
+    vim.o.shiftwidth = 2
 
-    -- shortcuts for tags
-    vim.cmd("abbreviate exp #explore") -- links to explore
-    vim.cmd("abbreviate td #todo")
+    -- moving up and down wrapped lines
+    vim.keymap.set("n", "j", "gj")
+    vim.keymap.set("n", "k", "gk")
 end
