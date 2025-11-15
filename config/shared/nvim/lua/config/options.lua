@@ -23,6 +23,9 @@ vim.o.autoindent = true
 -- line at the 80th column
 vim.o.colorcolumn = "80"
 
+-- stop columns from jumping
+vim.o.signcolumn = "yes:1"
+
 -- truecolor
 vim.o.termguicolors = true
 vim.cmd("colorscheme catppuccin-macchiato")
