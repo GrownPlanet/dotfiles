@@ -28,7 +28,7 @@ vim.o.signcolumn = "yes:1"
 
 -- truecolor
 vim.o.termguicolors = true
-vim.cmd("colorscheme catppuccin-macchiato")
+vim.cmd("colorscheme onedark")
 
 -- for taking notes
 function Notes()

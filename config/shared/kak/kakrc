@@ -67,4 +67,4 @@ plug "grownplanet/smoothwrap.kak" config %{
 }
 
 # colorscheme at the end so it overwrites all the colors
-colorscheme catppuccin_macchiato
+colorscheme onedark

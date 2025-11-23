@@ -1,5 +1,5 @@
 default-timeout=5000
-background-color=#24273a
-text-color=#cad3f5
-border-color=#cad3f5
+background-color=#282c34
+text-color=#abb2bf
+border-color=#abb2bf
 margin=20,20

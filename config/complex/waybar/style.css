@@ -7,50 +7,50 @@
 }
 
 window#waybar {
-    background-color: rgba(36, 39, 58, 0);
+    background-color: rgba(0, 0, 0, 0);
     color: white;
 }
 
 #workspaces {
-    background-color: #363a4f;
+    background-color: #282c34;
     margin: 5px;
     border-radius: 5px;
 }
 
 #workspaces button {
     padding: 0 10px;
-    color: #cad3f5;
+    color: #abb2bf;
 }
 
 #workspaces button.focused {
-    color: #24273a;
-    background-color: #cad3f5;
+    color: #21252b;
+    background-color: #abb2bf;
     border-radius: 5px;
 }
 
 #workspaces button:hover {
-    background-color: #5e81ac;
+    background-color: #393f4a;
     border-radius: 5px;
 }
 
 #clock, #pulseaudio, #tray, #battery {
-    color: #cad3f5;
-    background-color: #363a4f;
+    color: #abb2bf;
+    background-color: #282c34;
     padding: 0px 10px;
     margin: 5px 0px;
 }
 
 #mode {
-    color: #ed8796;
-    background-color: #363a4f;
+    color: #21252b;
+    background-color: #abb2bf;
     padding: 0px 10px;
     margin: 5px 0px;
     border-radius: 5px;
 }
 
 #custom-power {
-    color: #24273a;
-    background-color: #cad3f5;
+    color: #21252b;
+    background-color: #abb2bf;
     border-radius: 5px;
     margin-right: 10px;
     margin-top: 5px;

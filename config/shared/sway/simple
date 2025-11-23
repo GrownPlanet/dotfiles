@@ -16,14 +16,14 @@ default_border pixel 2
 titlebar_border_thickness 2
 
 # colors
-set $red #ed8796
-set $primary #cad3f5
-set $lavender #b7bdf8
-set $text #cad3f5
-set $overlay0 #6e738d
-set $surface2 #5b6078
-set $base #24273a
-set $crust #181926
+set $red #e86671
+set $primary #abb2bf
+set $lavender #c678dd
+set $text #abb2bf
+set $overlay0 #31353f
+set $surface2 #393f4a
+set $base #282c34
+set $crust #21252b
 
 # target                title     bg    text     indicator border
 client.focused          $lavender $base $text    $primary  $primary

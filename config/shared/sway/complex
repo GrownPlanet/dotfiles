@@ -9,7 +9,7 @@ set $menu fuzzel
 #
 
 # font
-font jetbrainsmononerdfont 0.001
+font jetbrainsmononerdfont 11
 
 # border
 default_border pixel 2
@@ -20,10 +20,10 @@ gaps outer 5
 gaps inner 5
 
 # colors
-set $primary #cad3f5
-set $text #cad3f5
-set $overlay0 #6e738d
-set $base #24273a
+set $primary #abb2bf
+set $text #abb2bf
+set $overlay0 #3b3f4c
+set $base #282c34
 
 # target                title     bg    text     indicator border
 client.focused          $primary  $base $text    $primary  $primary

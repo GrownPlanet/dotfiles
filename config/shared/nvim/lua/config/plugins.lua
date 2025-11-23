@@ -1,11 +1,22 @@
 return {
     -- fuzzy finder
     {
-        "nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" }
+        'nvim-telescope/telescope.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function ()
+            require("telescope").setup({
+              defaults = {
+                borderchars = {
+                  prompt  = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                  results = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                  preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                },
+              },
+            })
+        end,
     },
     -- color schemes
-    { "catppuccin/nvim" },
+    { "navarasu/onedark.nvim" },
     -- status bar
     {
         "nvim-lualine/lualine.nvim",
@@ -29,8 +40,6 @@ return {
             })
         end
     },
-    -- icons
-    { "nvim-tree/nvim-web-devicons" },
     -- completion
     { "hrsh7th/nvim-cmp", },
     -- completions from current buffer
