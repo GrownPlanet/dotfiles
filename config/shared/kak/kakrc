@@ -8,7 +8,7 @@ set-option global scrolloff 8,3
 set-option global startup_info_version -1
 
 add-highlighter global/ number-lines -relative -hlcursor -separator " "
-add-highlighter global/ column 80 default,rgb:494d64
+add-highlighter global/ column 80 default,rgb:373c47
 
 hook global BufSetOption filetype=ocaml %{
     set-option global tabstop 2

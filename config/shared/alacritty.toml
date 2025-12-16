@@ -13,8 +13,9 @@ style = "regular"
 
 [window]
 dimensions = { columns = 120, lines = 35 }
-opacity = 0.9
+# opacity = 0.9
 title = "Alacritty :)"
+dynamic_title = false
 
 [window.padding]
 x = 5

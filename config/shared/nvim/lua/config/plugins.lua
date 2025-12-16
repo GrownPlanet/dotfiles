@@ -5,13 +5,13 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function ()
             require("telescope").setup({
-              defaults = {
-                borderchars = {
-                  prompt  = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-                  results = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-                  preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                defaults = {
+                    borderchars = {
+                        prompt  = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                        results = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                        preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                    },
                 },
-              },
             })
         end,
     },
@@ -82,4 +82,16 @@ return {
     },
     { "neovim/nvim-lspconfig" },
     { "hrsh7th/cmp-nvim-lsp" },
+    -- markdown
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        ft = "markdown",
+        config = function()
+            require('render-markdown').setup({
+                render_modes = true,
+                completions = { lsp = { enabled = true } },
+                heading = { backgrounds = {}, signs = {} },
+            })
+        end
+    },
 };
