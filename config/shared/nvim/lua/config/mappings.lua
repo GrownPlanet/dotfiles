@@ -30,3 +30,6 @@ map("x", "<leader>rp", "\"_dP")
 -- buffers
 map("n", "gn", ":bn<CR>")
 map("n", "gb", ":bb<CR>")
+
+-- leap
+map({'n', 'x', 'o'}, 's', '<Plug>(leap)')

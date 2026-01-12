@@ -84,14 +84,16 @@ return {
     { "hrsh7th/cmp-nvim-lsp" },
     -- markdown
     {
-        'MeanderingProgrammer/render-markdown.nvim',
+        "MeanderingProgrammer/render-markdown.nvim",
         ft = "markdown",
         config = function()
-            require('render-markdown').setup({
+            require("render-markdown").setup({
                 render_modes = true,
                 completions = { lsp = { enabled = true } },
                 heading = { backgrounds = {}, signs = {} },
             })
         end
     },
+    -- leap
+    { "https://codeberg.org/andyg/leap.nvim" }
 };
