@@ -9,15 +9,15 @@ set $menu fuzzel
 #
 
 # font
-font jetbrainsmononerdfont 11
+font jetbrainsmononerdfont 12
 
 # border
 default_border pixel 2
 titlebar_border_thickness 2
 
 # gaps
-gaps outer 5
-gaps inner 5
+# gaps outer 5
+# gaps inner 5
 
 # colors
 set $primary #abb2bf
@@ -34,8 +34,36 @@ client.placeholder      $overlay0 $base $text    $overlay0 $overlay0
 client.background       $base
 
 # status bar
+# bar {
+#     swaybar_command waybar
+# }
+
+# colors
+set $red #e86671
+set $primary #abb2bf
+set $lavender #c678dd
+set $text #abb2bf
+set $overlay0 #31353f
+set $surface2 #393f4a
+set $base #282c34
+set $crust #21252b
+
 bar {
-    swaybar_command waybar
+    colors {
+        background         "$baseBB"
+        statusline         $text
+        focused_statusline $text
+        focused_separator  $base
+
+        # target           border bg        text
+        focused_workspace  $base  $primary  $crust
+        active_workspace   $base  $surface2 $text
+        inactive_workspace $base  $base     $text
+        urgent_workspace   $base  $red      $crust
+    }
+    status_command $HOME/.config/sway/bar.sh
+    font jetbrainsmononerdfont 12
+    # mode hide
 }
 
 #

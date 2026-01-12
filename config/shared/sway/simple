@@ -2,7 +2,17 @@
 # variables
 #
 
-set $menu wmenu-run
+# colors
+set $red #e86671
+set $primary #abb2bf
+set $lavender #c678dd
+set $text #abb2bf
+set $overlay0 #31353f
+set $surface2 #393f4a
+set $base #282c34
+set $crust #21252b
+
+set $menu "wmenu-run -N 393f4a -n abb2bf -S abb2bf -s 1e2127"
 
 #
 # style
@@ -14,16 +24,6 @@ font jetbrainsmononerdfont 11
 # border
 default_border pixel 2
 titlebar_border_thickness 2
-
-# colors
-set $red #e86671
-set $primary #abb2bf
-set $lavender #c678dd
-set $text #abb2bf
-set $overlay0 #31353f
-set $surface2 #393f4a
-set $base #282c34
-set $crust #21252b
 
 # target                title     bg    text     indicator border
 client.focused          $lavender $base $text    $primary  $primary
@@ -48,6 +48,7 @@ bar {
         urgent_workspace   $base  $red      $crust
     }
     status_command $HOME/.config/sway/bar.sh
+    mode hide
 }
 
 #
