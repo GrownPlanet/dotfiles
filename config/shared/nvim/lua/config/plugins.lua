@@ -95,5 +95,5 @@ return {
         end
     },
     -- leap
-    { "https://codeberg.org/andyg/leap.nvim" }
+    { "https://codeberg.org/andyg/leap.nvim" },
 };
