@@ -17,19 +17,9 @@ map("n", "<leader>P", "\"+P")
 map("n", "U", "<C-r>")
 
 -- fuzzy finder
-map("n", "<leader>f", "<cmd>Telescope find_files<CR>")
-map("n", "<leader>g", "<cmd>Telescope live_grep<CR>")
-map("n", "<leader>b", "<cmd>Telescope buffers<CR>")
-
--- don"t move the cursor when combining lines
-map("n", "J", "mzJ`z")
-
--- void replace
-map("x", "<leader>rp", "\"_dP")
-
--- buffers
-map("n", "gn", ":bn<CR>")
-map("n", "gb", ":bb<CR>")
+map("n", "<leader>f", "<cmd>Pick files<CR>")
+map("n", "<leader>g", "<cmd>Pick grep_live<CR>")
+map("n", "<leader>b", "<cmd>Pick buffers<CR>")
 
 -- leap
-map({'n', 'x', 'o'}, 's', '<Plug>(leap)')
+map({"n", "x", "o"}, "s", "<Plug>(leap)")

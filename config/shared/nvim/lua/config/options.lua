@@ -24,11 +24,14 @@ vim.o.autoindent = true
 vim.o.colorcolumn = "80"
 
 -- stop columns from jumping
-vim.o.signcolumn = "yes:1"
+vim.o.signcolumn = "yes"
 
 -- truecolor
 vim.o.termguicolors = true
 vim.cmd("colorscheme onedark")
+
+-- nicer borders
+vim.o.winborder = "single"
 
 -- for taking notes
 function Notes()
