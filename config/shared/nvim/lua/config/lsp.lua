@@ -8,9 +8,6 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "<F3>", function() vim.lsp.buf.format { async = true } end, opts)
 end
 
--- Setup capabilities for nvim-cmp
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 -- Setup language servers
 local servers = { "rust_analyzer", "pyright", "ocamllsp", "marksman" }
 for i, server in ipairs(servers) do
@@ -20,13 +17,3 @@ end
 
 -- Diagnostic config
 vim.diagnostic.config({ virtual_text = {} })
-
--- nvim-cmp setup
-local cmp = require("cmp")
-cmp.setup({
-    sources = { { name = "nvim_lsp" }, { name = "buffer" } },
-    mapping = cmp.mapping.preset.insert({
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
-    }),
-})
-

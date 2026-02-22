@@ -1,36 +1,30 @@
 return {
     -- fuzzy finder
-    {
-        "nvim-mini/mini.pick",
-        config = function ()
-            require("mini.pick").setup()
-        end
-    },
+    { "nvim-mini/mini.pick", opts = {} },
 
     -- color schemes
     { "navarasu/onedark.nvim" },
 
     -- auto pair brackets
-    {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        config = function ()
-            require("nvim-autopairs").setup({
-                enable_check_bracket_line = false,
-            })
-        end
-    },
+    { "nvim-mini/mini.pairs", opts = {} },
 
     -- completion
-    { "hrsh7th/nvim-cmp", },
-    { "hrsh7th/cmp-buffer" },
+    {
+        "saghen/blink.cmp",
+        version = "1.*",
+        opts = { 
+            completion = {
+                documentation = { auto_show = true },
+                list = { selection = { preselect = false } },
+            }
+        },
+    },
 
     -- treesitter
     {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
         build = ":TSUpdate",
-        cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
         opts = {
             highlight = { enable = true },
             indent = { enable = true },
@@ -41,27 +35,16 @@ return {
     },
 
     -- lsp 
-    {
-        "williamboman/mason.nvim",
-        init = function ()
-            require("mason").setup()
-        end,
-    },
+    { "williamboman/mason.nvim", opts = {} },
     { "neovim/nvim-lspconfig" },
-    { "hrsh7th/cmp-nvim-lsp" },
 
     -- markdown
     {
         "MeanderingProgrammer/render-markdown.nvim",
         ft = "markdown",
-        config = function()
-            require("render-markdown").setup({
-                render_modes = true,
-                heading = { backgrounds = {}, signs = {} },
-            })
-        end
+        opts = {
+            render_modes = true,
+            heading = { backgrounds = {}, signs = {} },
+        }
     },
-
-    -- leap
-    { "https://codeberg.org/andyg/leap.nvim" },
 };
