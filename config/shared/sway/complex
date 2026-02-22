@@ -40,7 +40,7 @@ client.background       $base
 # bar { swaybar_command waybar }
 bar {
     colors {
-        background         "$baseBB"
+        background         #00000000
         statusline         $text
         focused_statusline $text
         focused_separator  $base

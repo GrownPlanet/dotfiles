@@ -1,6 +1,12 @@
 return {
     -- fuzzy finder
-    { "nvim-mini/mini.pick", opts = {} },
+    {
+        "nvim-mini/mini.pick",
+        config = function()
+          local pick = require('mini.pick')
+          pick.setup({ source = { show = pick.default_show } })
+        end
+    },
 
     -- color schemes
     { "navarasu/onedark.nvim" },
@@ -16,8 +22,9 @@ return {
             completion = {
                 documentation = { auto_show = true },
                 list = { selection = { preselect = false } },
+                menu = { draw = { columns = { { "label", "label_description", gap = 1 }, { "kind" } } } }
             }
-        },
+        }
     },
 
     -- treesitter

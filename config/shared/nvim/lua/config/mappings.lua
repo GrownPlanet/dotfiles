@@ -20,6 +20,3 @@ map("n", "U", "<C-r>")
 map("n", "<leader>f", "<cmd>Pick files<CR>")
 map("n", "<leader>g", "<cmd>Pick grep_live<CR>")
 map("n", "<leader>b", "<cmd>Pick buffers<CR>")
-
--- leap
-map({"n", "x", "o"}, "s", "<Plug>(leap)")

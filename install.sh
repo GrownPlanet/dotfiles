@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 pkg_manager="$1"
 mode="$2"
@@ -62,8 +62,8 @@ fi
 
 # kakoune plugins
 if [ ! -d "$HOME/.config/kak/plugins" ]; then
-    mkdir -p $HOME/.config/kak/plugins
-    git clone https://github.com/andreyorst/plug.kak.git $HOME/.config/kak/plugins/plug.kak
+    mkdir -p "$HOME/.config/kak/plugins"
+    git clone https://github.com/andreyorst/plug.kak.git "$HOME/.config/kak/plugins/plug.kak"
 fi
 
 # cursor
