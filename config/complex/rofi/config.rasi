@@ -1,0 +1,52 @@
+configuration {
+    font: "JetBrainsMono Nerd Font 12";
+    show-icons: true;
+}
+
+* {
+    selected-normal-foreground:  #abb2bf;
+    foreground:                  #abb2bf;
+    normal-foreground:           @foreground;
+    alternate-normal-background: #282c34;
+    red:                         #e06c75;
+    selected-urgent-foreground:  #abb2bf;
+    blue:                        #61afef;
+    urgent-foreground:           #e06c75;
+    alternate-urgent-background: #3b3f4c;
+    active-foreground:           #61afef;
+    lightbg:                     #282c34;
+    selected-active-foreground:  #abb2bf;
+    alternate-active-background: #3b3f4c;
+    background:                  #282c34;
+    bordercolor:                 #abb2bf;
+    alternate-normal-foreground: @foreground;
+    normal-background:           #282c34;
+    lightfg:                     #848b98;
+    selected-normal-background:  #3b3f4c;
+    border-color:                @foreground;
+    spacing:                     2;
+    separatorcolor:              #abb2bf;
+    urgent-background:           #3b3f4c;
+    selected-urgent-background:  #e06c75;
+    alternate-urgent-foreground: @urgent-foreground;
+    background-color:            rgba(0, 0, 0, 0%);
+    alternate-active-foreground: @active-foreground;
+    active-background:           #3b3f4c;
+    selected-active-background:  #61afef;
+}
+
+window {
+    padding: 10;
+}
+
+listview {
+    border: 2px 0px 0px 0px ;
+}
+
+inputbar {
+    children: [ textbox-prompt-colon,entry,case-indicator ];
+}
+
+textbox-prompt-colon {
+    str: ">";
+}

@@ -11,7 +11,7 @@ fi
 # general packages
 sudo "$pkg_manager" install \
     fish unzip neovim tmux wl-clipboard kakoune fd rg \
-    sway waybar swaylock fuzzel alacritty celluloid mako grim slurp wlogout playerctl imv
+    sway waybar swaylock rofi alacritty celluloid mako grim slurp wlogout playerctl imv
 
 # backgrounds/ wallpapers
 if [ ! -d "$HOME/.local/share/backgrounds" ]; then

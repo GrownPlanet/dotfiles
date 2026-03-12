@@ -2,7 +2,7 @@
 # variables
 #
 
-set $menu fuzzel
+set $menu rofi -show drun
 
 #
 # style
@@ -40,7 +40,7 @@ client.background       $base
 # bar { swaybar_command waybar }
 bar {
     colors {
-        background         #00000000
+        background         $base
         statusline         $text
         focused_statusline $text
         focused_separator  $base
@@ -53,6 +53,7 @@ bar {
     }
     status_command $HOME/.config/sway/bar.sh
     font jetbrainsmononerdfont 12
+    mode hide
 }
 
 #
