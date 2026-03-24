@@ -53,7 +53,6 @@ bar {
     }
     status_command $HOME/.config/sway/bar.sh
     font jetbrainsmononerdfont 12
-    mode hide
 }
 
 #

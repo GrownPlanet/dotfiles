@@ -12,7 +12,7 @@ return {
     { "navarasu/onedark.nvim" },
 
     -- auto pair brackets
-    { "nvim-mini/mini.pairs", opts = {} },
+    { "windwp/nvim-autopairs", opts = { enable_check_bracket_line = false } },
 
     -- completion
     {
@@ -54,4 +54,7 @@ return {
             heading = { backgrounds = {}, signs = {} },
         }
     },
+    
+    -- leap
+    { "https://codeberg.org/andyg/leap.nvim" }
 };

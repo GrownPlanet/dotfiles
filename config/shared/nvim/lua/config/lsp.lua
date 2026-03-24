@@ -9,7 +9,7 @@ local on_attach = function(_, bufnr)
 end
 
 -- Setup language servers
-local servers = { "rust_analyzer", "pyright", "ocamllsp", "marksman" }
+local servers = { "rust_analyzer", "pyright", "ocamllsp", "marksman", "texlab" }
 for i, server in ipairs(servers) do
     vim.lsp.config(server, { on_attach = on_attach, capabilities = capabilities })
     vim.lsp.enable(server)
