@@ -33,13 +33,15 @@ vim.cmd("colorscheme onedark")
 -- nicer borders
 vim.o.winborder = "single"
 
+-- spelling language
+vim.o.spelllang = "nl,en"
+
 -- for taking notes
 function Notes()
     -- options
     vim.o.wrap = true
     vim.o.linebreak = true
     vim.o.spell = true
-    vim.o.spelllang = "en,nl"
     vim.o.spellcapcheck = ""
     vim.o.colorcolumn = ""
     vim.o.tabstop = 2

@@ -172,9 +172,10 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 #
 # Screen capture
 #
-mode "screenshot" {
-    bindsym 1 exec sh -c 'file=~/Pictures/screenshots/ps_$(date +%Y%m%d%H%M%S).png; grim -g "$(slurp)" "$file" && wl-copy < "$file"', mode "default"
-    bindsym 2 exec sh -c 'file=~/Pictures/screenshots/ps_$(date +%Y%m%d%H%M%S).png; grim               "$file" && wl-copy < "$file"', mode "default"
+mode "screenshot: (1) partial (2) full (3) text" {
+    bindsym 1 exec sh -c 'file=~/Pictures/screenshots/ps_$(date +%Y%m%d%H%M%S).png; grim -g "$(slurp)" "$file" && wl-copy < "$file"                 ; notify-send "screenshot" "image coppied to clipboard"', mode "default"
+    bindsym 2 exec sh -c 'file=~/Pictures/screenshots/ps_$(date +%Y%m%d%H%M%S).png; grim               "$file" && wl-copy < "$file"                 ; notify-send "screenshot" "image coppied to clipboard"', mode "default"
+    bindsym 3 exec sh -c 'file=~/Pictures/screenshots/ps_$(date +%Y%m%d%H%M%S).png; grim -g "$(slurp)" "$file" && tesseract "$file" stdout | wl-copy; notify-send "screenshot" "text coppied to clipboard"', mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -182,7 +183,7 @@ mode "screenshot" {
     bindsym $mod+Print mode "default"
 }
 
-bindsym Print mode "screenshot"
-bindsym $mod+Shift+S mode "screenshot"
+bindsym Print mode "screenshot: (1) partial (2) full (3) text"
+bindsym $mod+Shift+S mode "screenshot: (1) partial (2) full (3) text"
 
 include /etc/sway/config.d/*
