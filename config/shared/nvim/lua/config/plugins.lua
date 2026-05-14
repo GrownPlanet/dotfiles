@@ -1,60 +1,31 @@
-return {
-    -- fuzzy finder
-    {
-        "nvim-mini/mini.pick",
-        config = function()
-          local pick = require('mini.pick')
-          pick.setup({ source = { show = pick.default_show } })
-        end
-    },
+vim.pack.add({
+    "https://github.com/nvim-mini/mini.pick", -- fuzzy finder
+    "https://github.com/navarasu/onedark.nvim", -- color scheme
+    "https://github.com/windwp/nvim-autopairs", -- auto pair brakcets
+    { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.x") },
+    "https://github.com/williamboman/mason.nvim", -- lsp manager
+    "https://github.com/neovim/nvim-lspconfig", -- lsp configs
+    "https://github.com/MeanderingProgrammer/render-markdown.nvim", -- markdown
+    "https://codeberg.org/andyg/leap.nvim", -- navigation
+    "https://github.com/nvim-treesitter/nvim-treesitter",
+})
 
-    -- color schemes
-    { "navarasu/onedark.nvim" },
+local pick = require("mini.pick")
+pick.setup({ source = { show = pick.default_show } })
 
-    -- auto pair brackets
-    { "windwp/nvim-autopairs", opts = { enable_check_bracket_line = false } },
+require("nvim-autopairs").setup({ enable_check_bracket_line = false })
 
-    -- completion
-    {
-        "saghen/blink.cmp",
-        version = "1.*",
-        opts = { 
-            completion = {
-                documentation = { auto_show = true },
-                list = { selection = { preselect = false } },
-                menu = { draw = { columns = { { "label", "label_description", gap = 1 }, { "kind" } } } }
-            }
-        }
-    },
+require("blink.cmp").setup({
+    completion = {
+        documentation = { auto_show = true },
+        list = { selection = { preselect = false } },
+        menu = { draw = { columns = { { "label", "label_description", gap = 1 }, { "kind" } } } }
+    }
+})
 
-    -- treesitter
-    {
-        "nvim-treesitter/nvim-treesitter",
-        lazy = false,
-        build = ":TSUpdate",
-        opts = {
-            highlight = { enable = true },
-            indent = { enable = true },
-            ensure_installed = {
-                "c", "cpp", "json", "lua", "markdown", "rust", "toml", "bash"
-            }
-        }
-    },
+require("mason").setup({})
 
-    -- lsp 
-    { "williamboman/mason.nvim", opts = {} },
-    { "neovim/nvim-lspconfig" },
-
-    -- markdown
-    {
-        "MeanderingProgrammer/render-markdown.nvim",
-        ft = "markdown",
-        opts = {
-            render_modes = true,
-            heading = { backgrounds = {}, signs = {} },
-        }
-    },
-    
-    -- leap
-    { "https://codeberg.org/andyg/leap.nvim" }
-};
+require("render-markdown").setup({
+  render_modes = true,
+  heading = { backgrounds = {}, signs = {} },
+})
