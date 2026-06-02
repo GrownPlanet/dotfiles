@@ -1,6 +1,34 @@
 function DailyJournal()
-    local date = os.date("%Y%m%d")
-    vim.cmd("edit journal/" .. date .. ".md")
+    local date = os.date("%Y_%m_%d")
+    local journal_dir = "~/sync/notes/persoonlijk/journal/"
+    vim.cmd("edit" .. journal_dir .. date .. ".md")
+end
+
+function CompilePDF()
+    local file = vim.fn.expand("%:p")
+    local output = vim.fn.expand("%:p:r") .. ".pdf"
+    vim.fn.jobstart({ 
+        "pandoc",
+        "--pdf-engine=xelatex",
+        "-V", "geometry:margin=2.5cm",
+        "-V", "fontsize=11pt",
+        "-V", "linestretch=1.25",
+        "-V", "mainfont=Latin Modern Roman",
+        "-V", "colorlinks=true",
+        "-V", "papersize=a4",
+        file, "-o", output
+    })
+end
+
+function CompileHTML()
+    local file = vim.fn.expand("%:p")
+    local output = vim.fn.expand("%:p:r") .. ".html"
+    vim.fn.jobstart({ 
+        "pandoc",
+        "--standalone",
+        "--highlight-style=pygments",
+        file, "-o", output
+    })
 end
 
 -- for taking notes
@@ -19,6 +47,8 @@ function Notes()
     vim.keymap.set("n", "k", "gk")
 
     vim.keymap.set("n", "<leader>nd", "<cmd>lua DailyJournal()<cr>")
+    vim.keymap.set("n", "<leader>ncp", "<cmd>lua CompilePDF()<cr>")
+    vim.keymap.set("n", "<leader>nch", "<cmd>lua CompileHTML()<cr>")
 end
 
 vim.api.nvim_create_autocmd("FileType", {

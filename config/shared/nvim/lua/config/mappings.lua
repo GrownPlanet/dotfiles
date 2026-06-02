@@ -1,5 +1,6 @@
 -- leadermap
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Map leader + "y" to yank to clipboard
 vim.keymap.set({"v", "n"}, "<leader>y", "\"+y")

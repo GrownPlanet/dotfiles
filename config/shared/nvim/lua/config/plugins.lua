@@ -7,7 +7,7 @@ vim.pack.add({
     "https://github.com/neovim/nvim-lspconfig", -- lsp configs
     "https://github.com/MeanderingProgrammer/render-markdown.nvim", -- markdown
     "https://codeberg.org/andyg/leap.nvim", -- navigation
-    "https://github.com/nvim-treesitter/nvim-treesitter",
+    "https://github.com/nvim-treesitter/nvim-treesitter", -- treesitter
 })
 
 local pick = require("mini.pick")
@@ -28,4 +28,13 @@ require("mason").setup({})
 require("render-markdown").setup({
   render_modes = true,
   heading = { backgrounds = {}, signs = {} },
+})
+
+ts_languages = { "bash", "c", "cpp", "lua", "markdown", "toml", "rust", "json" }
+
+require("nvim-treesitter").install(ts_languages)
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = ts_languages,
+    callback = function() vim.treesitter.start() end
 })
