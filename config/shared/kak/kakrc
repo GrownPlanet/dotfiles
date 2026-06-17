@@ -1,7 +1,10 @@
 # options
 set-option global tabstop 4
 set-option global indentwidth 4
-map global insert <tab> <space><space><space><space>
+
+# map global insert <tab> <space><space><space><space>
+hook global InsertChar \t %{ exec -draft h@ }
+map global insert <s-tab> '<a-;><lt>'
 
 set-option global scrolloff 8,3
 
@@ -63,7 +66,15 @@ map global user l ":enter-user-mode lsp<ret>" -docstring "LSP mode"
 
 # smooth wrapping
 plug "grownplanet/smoothwrap.kak" config %{
-    set-option global wrap_width 80
+    set-option global wrap_width 100
+}
+
+# notes
+define-command notes %{
+    map global insert <tab> '<a-;><gt>'
+    remove-highlighter global/column_80_default,rgb:373c47
+    add-highlighter global/ column 100 default,rgb:373c47
+    enable-smoothwrap
 }
 
 # colorscheme at the end so it overwrites all the colors
