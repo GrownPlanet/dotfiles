@@ -13,34 +13,49 @@ set-option global startup_info_version -1
 add-highlighter global/ number-lines -relative -hlcursor -separator " "
 add-highlighter global/ column 80 default,rgb:373c47
 
+# file callbacks
+
 hook global BufSetOption filetype=ocaml %{
     set-option global tabstop 2
     set-option global indentwidth 2
-    map global insert <tab> <space><space>
 }
 
 hook global BufSetOption filetype=markdown %{
     add-highlighter buffer/ regex '\[([^\n]*?)\]\(([^\n]*?)\)' 0:mdlink 2:link
     add-highlighter buffer/ regex "\[x\]" 0:green
+    notes
+}
+
+# notes
+define-command notes %{
+    map global insert <tab> '<a-;><gt>'
+    remove-highlighter global/column_80_default,rgb:373c47
+    add-highlighter global/ column 100 default,rgb:373c47
+    enable-smoothwrap
+    set-option global tabstop 2
+    set-option global indentwidth 2
 }
 
 # mappings
 map global user y "<a-|>wl-copy<ret>" -docstring "yank to clipboard"
 map global user p "<a-!>wl-paste -n<ret>" -docstring "paste from clipboard"
 map global user P "!wl-paste -n<ret>" -docstring "paste in front from clipboard"
-map global user u "<a-|>xargs xdg-open<ret>" -docstring "follow url"
 
 map global normal "/" "/(?i)"
-
 map global normal "#" ":comment-line<ret>"
+
+map global goto x "<esc><a-|>xargs xdg-open<ret>" -docstring "follow url"
+
+map global goto n "<esc>:grep-next-match<ret>"
+map global goto p "<esc>:grep-previous-match<ret>"
 
 # plugins
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 plug "andreyorst/plug.kak" noload
 
-# fzf
+# fuzzy search
 plug "andreyorst/fzf.kak" config %{
-    # map global user f ":fzf-mode<ret>f" -docstring "find file"
+    map global user f ":fzf-mode<ret>f" -docstring "find file"
     map global user g ":fzf-mode<ret>g" -docstring "grep string"
     map global user b ":fzf-mode<ret>b" -docstring "find buffer"
     map global user s ":fzf-mode<ret>" -docstring "fzf mode"
@@ -52,9 +67,10 @@ plug "andreyorst/fzf.kak" config %{
     set-option global fzf_grep_preview_command "bat --color=always --theme=Coldark-Dark --style=plain --highlight-line {2} {1}"
 }
 
-define-command find -docstring "find files" -params 1 %{ edit %arg{1} }
-complete-command find shell-script-candidates %{ fd --type f }
-map global user f ":find " -docstring "find file"
+define-command fuzzy_find -docstring "fuzzy search file" -params 1 %{ edit %arg{1} }
+complete-command fuzzy_find shell-script-candidates %{ fd --type f }
+
+set-option global grepcmd "rg -n"
 
 # auto pairs
 plug "alexherbo2/auto-pairs.kak"
@@ -69,14 +85,6 @@ map global user l ":enter-user-mode lsp<ret>" -docstring "LSP mode"
 # smooth wrapping
 plug "grownplanet/smoothwrap.kak" config %{
     set-option global wrap_width 100
-}
-
-# notes
-define-command notes %{
-    map global insert <tab> '<a-;><gt>'
-    remove-highlighter global/column_80_default,rgb:373c47
-    add-highlighter global/ column 100 default,rgb:373c47
-    enable-smoothwrap
 }
 
 # colorscheme at the end so it overwrites all the colors
