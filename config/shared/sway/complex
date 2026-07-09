@@ -21,12 +21,12 @@ titlebar_border_thickness 2
 
 # colors
 set $text #abb2bf
-set $base #282c34
+set $base #282c3488
 set $crust #21252b
 set $overlay0 #3b3f4c
 set $lavender #c678dd
 set $red #e86671
-set $surface2 #393f4a
+set $surface2 #393f4a88
 
 # target                title     bg    text  indicator border
 client.focused          $text     $base $text $text     $text
@@ -38,22 +38,24 @@ client.background       $base
 
 # status bar
 # bar { swaybar_command waybar }
-bar {
-    colors {
-        background         $base
-        statusline         $text
-        focused_statusline $text
-        focused_separator  $base
+# bar {
+#     colors {
+#         background         $base
+#         statusline         $text
+#         focused_statusline $text
+#         focused_separator  $base
 
-        # target           border bg        text
-        focused_workspace  $base  $text     $crust
-        active_workspace   $base  $surface2 $text
-        inactive_workspace $base  $base     $text
-        urgent_workspace   $base  $red      $crust
-    }
-    status_command $HOME/.config/sway/bar.sh
-    font jetbrainsmononerdfont 12
-}
+#         # target           border bg        text
+#         focused_workspace  $base  $text     $crust
+#         active_workspace   $base  $surface2 $text
+#         inactive_workspace $base  $base     $text
+#         urgent_workspace   $base  $red      $crust
+#     }
+#     status_command $HOME/.config/sway/bar.sh
+#     font jetbrainsmononerdfont 12
+# }
+
+exec waybar
 
 #
 # keybindings

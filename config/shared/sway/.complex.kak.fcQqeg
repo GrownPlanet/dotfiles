@@ -15,6 +15,10 @@ font jetbrainsmononerdfont 12
 default_border pixel 2
 titlebar_border_thickness 2
 
+# gaps
+# gaps outer 5
+# gaps inner 5
+
 # colors
 set $text #abb2bf
 set $base #282c3488
@@ -33,26 +37,31 @@ client.placeholder      $overlay0 $base $text $overlay0 $overlay0
 client.background       $base
 
 # status bar
-bar {
-    colors {
-        background         $base
-        statusline         $text
-        focused_statusline $text
-        focused_separator  $base
 
-        # target           border bg        text
-        focused_workspace  $base  $text     $crust
-        active_workspace   $base  $surface2 $text
-        inactive_workspace $base  $base     $text
-        urgent_workspace   $base  $red      $crust
-    }
-    status_command $HOME/.config/sway/bar.sh
-    font jetbrainsmononerdfont 12
+bar {
+swaybar_command waybar
 }
+
+# bar {
+#     colors {
+#         background         $base
+#         statusline         $text
+#         focused_statusline $text
+#         focused_separator  $base
+
+#         # target           border bg        text
+#         focused_workspace  $base  $text     $crust
+#         active_workspace   $base  $surface2 $text
+#         inactive_workspace $base  $base     $text
+#         urgent_workspace   $base  $red      $crust
+#     }
+#     status_command $HOME/.config/sway/bar.sh
+#     font jetbrainsmononerdfont 12
+# }
 
 #
 # keybindings
 #
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec wlogout
