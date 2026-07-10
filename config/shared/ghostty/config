@@ -34,3 +34,5 @@ palette = 12=#61afef
 palette = 13=#c678dd
 palette = 14=#56b6c2
 palette = 15=#ffffff
+
+background-opacity = 0.9

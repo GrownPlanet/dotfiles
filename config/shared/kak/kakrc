@@ -16,8 +16,8 @@ add-highlighter global/column80 column 80 default,rgb:373c47
 # file callbacks
 
 hook global BufSetOption filetype=ocaml %{
-    set-option global tabstop 2
-    set-option global indentwidth 2
+    set-option buffer tabstop 2
+    set-option buffer indentwidth 2
 }
 
 hook global BufSetOption filetype=markdown %{
@@ -28,12 +28,12 @@ hook global BufSetOption filetype=markdown %{
 
 # notes
 define-command notes %{
-    map global insert <tab> '<a-;><gt>'
+    map buffer insert <tab> '<a-;><gt>'
     remove-highlighter global/column80
-    add-highlighter global/column100 column 100 default,rgb:373c47
+    add-highlighter buffer/column100 column 100 default,rgb:373c47
     enable-smoothwrap
-    set-option global tabstop 2
-    set-option global indentwidth 2
+    set-option buffer tabstop 2
+    set-option buffer indentwidth 2
 }
 
 # mappings
@@ -79,6 +79,16 @@ enable-auto-pairs
 # lsp
 eval %sh{kak-lsp}
 lsp-enable
+
+remove-hooks global lsp-filetype-python
+
+hook -group lsp-filetype-python global BufSetOption filetype=python %{
+    set-option buffer lsp_servers %{
+        [pyright-langserver]
+        root_globs = ["requirements.txt", "setup.py", "pyproject.toml", "pyrightconfig.json", ".git", ".hg"]
+        args = ["--stdio"]
+    }
+}
 
 map global user l ":enter-user-mode lsp<ret>" -docstring "LSP mode"
 

@@ -1,4 +1,4 @@
-# Read `man 5 sway` for a complete reference.
+    # Read `man 5 sway` for a complete reference.
 
 set $mod Mod4
 
@@ -29,6 +29,9 @@ output * bg $HOME/.local/share/backgrounds/mountain2.png fill
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output HDMI-A-1 position 0 180
 output DP-1 position 1920 0 mode 2560x1440@165.002Hz
+
+# output HDMI-A-2 position 1600 0
+# output eDP-1 scale 1.2 position 0 0
 
 input * repeat_rate 40
 input * repeat_delay 300

@@ -1,12 +1,10 @@
 {
-    "position": "bottom", 
+    "position": "top",
     "height": 25,
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
+    "modules-center": ["sway/window", "music"],
     "modules-right": ["pulseaudio", "battery", "clock", "tray", "custom/power"],
     "sway/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
         "format": "{icon}",
     },
     "custom/power": {
