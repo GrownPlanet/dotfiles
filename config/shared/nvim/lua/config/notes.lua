@@ -34,21 +34,21 @@ end
 -- for taking notes
 function Notes()
     -- options
-    vim.o.wrap = true
-    vim.o.linebreak = true
-    vim.o.spell = true
-    vim.o.spellcapcheck = ""
-    vim.o.colorcolumn = ""
-    vim.o.tabstop = 2
-    vim.o.shiftwidth = 2
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+    vim.opt_local.spell = true
+    vim.opt_local.spellcapcheck = ""
+    vim.opt_local.colorcolumn = ""
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
 
     -- moving up and down wrapped lines
-    vim.keymap.set("n", "j", "gj")
-    vim.keymap.set("n", "k", "gk")
+    vim.keymap.set("n", "j", "gj", { buffer = true })
+    vim.keymap.set("n", "k", "gk", { buffer = true })
 
-    vim.keymap.set("n", "<leader>nd", "<cmd>lua DailyJournal()<cr>")
-    vim.keymap.set("n", "<leader>ncp", "<cmd>lua CompilePDF()<cr>")
-    vim.keymap.set("n", "<leader>nch", "<cmd>lua CompileHTML()<cr>")
+    vim.keymap.set("n", "<leader>nd", "<cmd>lua DailyJournal()<cr>", { buffer = true })
+    vim.keymap.set("n", "<leader>ncp", "<cmd>lua CompilePDF()<cr>", { buffer = true })
+    vim.keymap.set("n", "<leader>nch", "<cmd>lua CompileHTML()<cr>", { buffer = true })
 end
 
 vim.api.nvim_create_autocmd("FileType", {
