@@ -5,6 +5,10 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
+    "bullets.vim": {
+      "rev": "3f667eeca58bd4ba411b41edefef51e7fed1a2b1",
+      "src": "https://github.com/bullets-vim/bullets.vim"
+    },
     "leap.nvim": {
       "rev": "940bc5e716a8cde63bd47e1b13f30fd9075ec0c8",
       "src": "https://codeberg.org/andyg/leap.nvim"
