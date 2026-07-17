@@ -2,13 +2,13 @@ vim.pack.add({
     "https://github.com/nvim-mini/mini.pick", -- fuzzy finder
     "https://github.com/navarasu/onedark.nvim", -- color scheme
     "https://github.com/windwp/nvim-autopairs", -- auto pair brakcets
-    { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.x") },
+    { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.x") }, -- messages
     "https://github.com/neovim/nvim-lspconfig", -- lsp configs
     "https://github.com/MeanderingProgrammer/render-markdown.nvim", -- markdown
     "https://github.com/nvim-treesitter/nvim-treesitter", -- treesitter
     "https://github.com/bullets-vim/bullets.vim", -- better bullet lists
     "https://codeberg.org/andyg/leap.nvim", -- navigation
-    "https://github.com/williamboman/mason.nvim", -- lsp manager
+    -- "https://github.com/christoomey/vim-tmux-navigator", -- easy tmux navigation
 })
 
 local pick = require("mini.pick")
@@ -25,8 +25,9 @@ require("blink.cmp").setup({
 })
 
 require("render-markdown").setup({
-  render_modes = true,
   heading = { backgrounds = {}, signs = {} },
+  code = { border = 'thick' },
+  pipe_table = { style = 'normal' },
 })
 
 ts_languages = { "bash", "c", "cpp", "lua", "markdown", "toml", "rust", "json" }
@@ -43,5 +44,3 @@ vim.g.bullets_custom_mappings = {
   {'imap', '<tab>', '<Plug>(bullets-demote)'},
   {'imap', '<s-tab>', '<Plug>(bullets-promote)'},
 }
-
-require("mason").setup({})

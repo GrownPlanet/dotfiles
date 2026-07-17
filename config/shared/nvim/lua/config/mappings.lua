@@ -22,3 +22,9 @@ vim.keymap.set("n", "Z", "1z=")
 
 -- leap
 vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
+
+-- windows
+vim.keymap.set("n", "<c-h>", ":wincmd h<cr>")
+vim.keymap.set("n", "<c-j>", ":wincmd j<cr>")
+vim.keymap.set("n", "<c-k>", ":wincmd k<cr>")
+vim.keymap.set("n", "<c-l>", ":wincmd l<cr>")
