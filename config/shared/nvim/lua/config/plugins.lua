@@ -33,6 +33,11 @@ require("render-markdown").setup({
 ts_languages = { "bash", "c", "cpp", "lua", "markdown", "toml", "rust", "json" }
 
 require("nvim-treesitter").install(ts_languages)
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function()
+    pcall(vim.treesitter.start)
+  end,
+})
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = ts_languages,
