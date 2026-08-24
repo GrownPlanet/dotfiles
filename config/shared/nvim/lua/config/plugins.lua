@@ -28,6 +28,7 @@ require("render-markdown").setup({
   heading = { backgrounds = {}, signs = {} },
   code = { border = 'thick' },
   pipe_table = { style = 'normal' },
+  ft = { "markdown", "codecompanion" },
 })
 
 ts_languages = { "bash", "c", "cpp", "lua", "markdown", "toml", "rust", "json" }

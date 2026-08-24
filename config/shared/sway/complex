@@ -2,7 +2,7 @@
 # variables
 #
 
-set $menu rofi -show drun
+set $menu noctalia msg panel-open launcher
 
 #
 # style
@@ -44,7 +44,7 @@ client.background       $base
 #         statusline         $text
 #         focused_statusline $text
 #         focused_separator  $base
-
+#
 #         # target           border bg        text
 #         focused_workspace  $base  $text     $crust
 #         active_workspace   $base  $surface2 $text
@@ -62,4 +62,7 @@ exec waybar
 #
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec wlogout
+bindsym $mod+Shift+e exec noctalia msg session lock-and-suspend
+
+# lockscreen
+bindsym $mod+Shift+p exec noctalia msg session lock

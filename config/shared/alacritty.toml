@@ -16,6 +16,7 @@ dimensions = { columns = 120, lines = 35 }
 opacity = 0.9
 title = "Alacritty"
 dynamic_title = false
+decorations = "None"
 
 [window.padding]
 x = 5
