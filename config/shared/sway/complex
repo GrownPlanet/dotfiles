@@ -55,7 +55,7 @@ client.background       $base
 #     font jetbrainsmononerdfont 12
 # }
 
-exec waybar
+exec noctalia
 
 #
 # keybindings

@@ -8,12 +8,28 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "<F3>", function() vim.lsp.buf.format { async = true } end, opts)
 end
 
--- Setup language servers
-local servers = { "rust_analyzer", "pyright", "ocamllsp", "marksman", "texlab", "zls", "julials" }
-local capabilities = require("blink.cmp").get_lsp_capabilities()
-for _, server in ipairs(servers) do
-    vim.lsp.config(server, { on_attach = on_attach, capabilities = capabilities })
-    vim.lsp.enable(server)
+-- Server configurations table
+local servers = {
+    rust_analyzer = {
+        settings = {
+            ["rust-analyzer"] = {
+                diagnostics = { disabled = { "inactive-code" } },
+            },
+        },
+    },
+    pyright = {},
+    ocamllsp = {},
+    marksman = {},
+    texlab = {},
+    zls = {},
+}
+
+-- Apply configurations and enable servers
+for name, config in pairs(servers) do
+    config.on_attach = on_attach
+    config.capabilities = capabilities
+    vim.lsp.config(name, config)
+    vim.lsp.enable(name)
 end
 
 -- Diagnostic config

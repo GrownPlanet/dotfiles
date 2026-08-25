@@ -31,6 +31,21 @@ function CompileHTML()
     })
 end
 
+function pasteImage()
+    local filename = os.date("%Y-%m-%d_%H-%M-%S") .. ".png"
+    local path = "assets/" .. filename
+
+    vim.fn.mkdir("assets", "p")
+
+    vim.system({ "sh", "-c", "wl-paste > " .. vim.fn.shellescape(path) }):wait()
+
+    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+    local text = string.format("![image](%s)", path)
+
+    vim.api.nvim_buf_set_text(0, row - 1, col, row - 1, col, { text })
+end
+
+
 -- for taking notes
 function Notes()
     -- options
@@ -48,6 +63,7 @@ function Notes()
     vim.keymap.set("n", "<leader>nd", "<cmd>lua DailyJournal()<cr>", { buffer = true })
     vim.keymap.set("n", "<leader>ncp", "<cmd>lua CompilePDF()<cr>", { buffer = true })
     vim.keymap.set("n", "<leader>nch", "<cmd>lua CompileHTML()<cr>", { buffer = true })
+    vim.keymap.set("n", "<leader>i", "<cmd>lua pasteImage()<cr>", { buffer = true })
 end
 
 vim.api.nvim_create_autocmd("FileType", {

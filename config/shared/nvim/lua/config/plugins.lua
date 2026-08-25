@@ -25,11 +25,11 @@ require("blink.cmp").setup({
 })
 
 require("render-markdown").setup({
-  heading = { backgrounds = {}, signs = {} },
-  code = { border = 'thick' },
-  pipe_table = { style = 'normal' },
-  ft = { "markdown", "codecompanion" },
-})
+    render_modes = true,
+    heading = { backgrounds = {}, signs = {} },
+    code = { border = 'thick' },
+    pipe_table = { style = 'normal' },
+a})
 
 ts_languages = { "bash", "c", "cpp", "lua", "markdown", "toml", "rust", "json" }
 
