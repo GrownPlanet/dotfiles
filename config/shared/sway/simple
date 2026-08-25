@@ -62,3 +62,14 @@ bindsym $mod+Shift+p exec swaylock -f
 
 # notifications
 exec mako
+
+#
+# locking
+#
+
+# Automcatically lock screen
+exec swayidle -w \
+    timeout 600 "swaylock -f"\
+    timeout 1200 "systemctl suspend"\
+    resume "openrgb -c ffffff"
+

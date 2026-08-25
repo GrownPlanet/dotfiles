@@ -31,7 +31,7 @@ define-command notes %{
     map buffer insert <tab> '<a-;><gt>'
     remove-highlighter global/column80
     add-highlighter buffer/column100 column 100 default,rgb:373c47
-    enable-smoothwrap
+    # enable-smoothwrap
     set-option buffer tabstop 2
     set-option buffer indentwidth 2
 }

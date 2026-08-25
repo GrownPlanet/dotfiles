@@ -35,6 +35,24 @@ widget_order = []
 
     [desktop_widgets.widget]
 
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660.0
+
 [location]
 auto_locate = true
 
@@ -104,12 +122,15 @@ widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@HDMI-A-1" ]
 [osd.kinds]
 media = false
 
-[shell.launcher]
-categories = false
-show_app_origin_indicator = false
+[shell]
+avatar_path = "/home/timo/Pictures/paleblue.png"
 
-[shell.panel]
-launcher_placement = "attached"
+    [shell.launcher]
+    categories = false
+    show_app_origin_indicator = false
+
+    [shell.panel]
+    launcher_placement = "attached"
 
 [theme]
 custom_palette = "OneDark"
@@ -130,3 +151,6 @@ transition = [ "fade" ]
 
     [wallpaper.monitors.HDMI-A-1]
     path = "/home/timo/.local/share/backgrounds/mountains.jpg"
+
+[widget.network]
+show_label = false
