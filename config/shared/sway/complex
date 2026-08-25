@@ -61,8 +61,8 @@ exec noctalia
 # keybindings
 #
 
-# Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec noctalia msg session lock-and-suspend
+# Exit sway
+bindsym $mod+Shift+e exec noctalia msg panel-open session
 
 # lockscreen
 bindsym $mod+Shift+p exec noctalia msg session lock
