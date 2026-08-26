@@ -31,7 +31,11 @@ define-command notes %{
     map buffer insert <tab> '<a-;><gt>'
     remove-highlighter global/column80
     add-highlighter buffer/column100 column 100 default,rgb:373c47
-    # enable-smoothwrap
+
+    add-highlighter buffer/wrap wrap -word -width 100 -indent
+    map buffer normal j gd
+    map buffer normal k gu
+
     set-option buffer tabstop 2
     set-option buffer indentwidth 2
 }
@@ -77,8 +81,11 @@ plug "alexherbo2/auto-pairs.kak"
 enable-auto-pairs
 
 # lsp
-eval %sh{kak-lsp}
-lsp-enable
+
+hook global BufSetOption filetype=(?:ocaml|rust|python) %{
+    eval %sh{kak-lsp}
+    lsp-enable
+}
 
 remove-hooks global lsp-filetype-python
 
@@ -91,11 +98,6 @@ hook -group lsp-filetype-python global BufSetOption filetype=python %{
 }
 
 map global user l ":enter-user-mode lsp<ret>" -docstring "LSP mode"
-
-# smooth wrapping
-plug "grownplanet/smoothwrap.kak" config %{
-    set-option global wrap_width 100
-}
 
 # colorscheme at the end so it overwrites all the colors
 colorscheme onedark

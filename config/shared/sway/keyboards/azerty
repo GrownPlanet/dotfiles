@@ -1,3 +1,10 @@
+input type:keyboard {
+    # azerty
+    xkb_layout be
+    # rebind capslock as escape
+    xkb_options caps:escape
+}
+
 # Kill focused window
 bindsym $mod+Shift+a kill
 

@@ -1,3 +1,8 @@
+input type:keyboard {
+    # rebind capslock as escape
+    xkb_options caps:escape
+}
+
 # Kill focused window
 bindsym $mod+Shift+q kill
 

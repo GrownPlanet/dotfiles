@@ -1,3 +1,9 @@
+# for qwerty
+include ./keyboards/qwerty
+# for azerty
+# include ./keyboards/azerty
+
+
 # Read `man 5 sway` for a complete reference.
 
 set $mod Mod4
@@ -36,13 +42,6 @@ output DP-1 position 1920 0 mode 2560x1440@165.002Hz
 input * repeat_rate 40
 input * repeat_delay 300
 
-input type:keyboard {
-    # azerty
-    # xkb_layout be
-    # rebind capslock as escape
-    xkb_options caps:escape
-}
-
 input "type:touchpad" {
     natural_scroll enabled
 }
@@ -56,11 +55,6 @@ seat * xcursor_theme Bibata-Modern-Classic 20
 #
 # keybindings
 #
-
-# for qwerty
-include ./keyboards/qwerty
-# for azerty
-# include ./keyboards/azerty
 
 # Start a terminal or browser
 bindsym $mod+Return exec $term
