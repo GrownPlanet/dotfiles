@@ -1,12 +1,11 @@
+# Read `man 5 sway` for a complete reference.
+
+set $mod Mod4
+
 # for qwerty
 include ./keyboards/qwerty
 # for azerty
 # include ./keyboards/azerty
-
-
-# Read `man 5 sway` for a complete reference.
-
-set $mod Mod4
 
 #
 # type of config

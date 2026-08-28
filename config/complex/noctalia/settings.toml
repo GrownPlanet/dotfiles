@@ -132,6 +132,46 @@ avatar_path = "/home/timo/Pictures/paleblue.png"
     [shell.panel]
     launcher_placement = "attached"
 
+    [shell.screenshot]
+    directory = "/home/timo/Pictures/screenshots"
+    filename_pattern = "ps_%Y%m%d%H%M%S"
+
+    [[shell.session.actions]]
+    action = "lock"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "1"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "2"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"
+    command = "openrgb -c 000000 && systemctl suspend"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "3"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "4"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "5"
+    variant = "destructive"
+
 [theme]
 custom_palette = "OneDark"
 source = "custom"
@@ -151,6 +191,10 @@ transition = [ "fade" ]
 
     [wallpaper.monitors.HDMI-A-1]
     path = "/home/timo/.local/share/backgrounds/mountains.jpg"
+
+[widget.media]
+hide_when_no_media = true
+title_scroll = "on_hover"
 
 [widget.network]
 show_label = false
