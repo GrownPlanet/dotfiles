@@ -50,8 +50,8 @@ map global normal "#" ":comment-line<ret>"
 
 map global goto x "<esc><a-|>xargs xdg-open<ret>" -docstring "follow url"
 
-map global goto n "<esc>:grep-next-match<ret>"
-map global goto p "<esc>:grep-previous-match<ret>"
+map global goto n "<esc>:grep-next-match<ret>" -docstring "next grep match"
+map global goto p "<esc>:grep-previous-match<ret>" -docstring "previous grep match"
 
 # plugins
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
@@ -82,10 +82,8 @@ enable-auto-pairs
 
 # lsp
 
-hook global BufSetOption filetype=(?:ocaml|rust|python) %{
-    eval %sh{kak-lsp}
-    lsp-enable
-}
+eval %sh{kak-lsp}
+lsp-enable
 
 remove-hooks global lsp-filetype-python
 

@@ -56,7 +56,13 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
 [location]
 auto_locate = true
 
+[lockscreen]
+edge_smoothness = 0.0
+transition = [ "wipe" ]
+transition_duration = 500
+
 [lockscreen_widgets]
+enabled = false
 schema_version = 2
 widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@HDMI-A-1" ]
 
