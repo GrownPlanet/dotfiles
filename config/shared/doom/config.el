@@ -112,11 +112,11 @@
   (plist-put org-format-latex-options :scale 1))
 
 (map! :leader
-      (:prefix ("y" . "clipboard")
-       :desc "Copy line to clipboard"     :n  "y" "\"+yy"
-       :desc "Copy selection to clipboard" :v  "y" "\"+y"
-       :desc "Paste from clipboard"        :nv "p" "\"+p"
-       :desc "Paste before from clipboard" :nv "P" "\"+P"))
+      :nv "y" "\"+y"   ; SPC y: yank to clipboard
+      :nv "k" "\"+p"   ; SPC k: paste after
+      :nv "K" "\"+P")  ; SPC K: paste before
+
+(map! :n "U" "C-r")
 
 (setq org-startup-with-inline-images t)
 
@@ -125,6 +125,10 @@
 (after! org-download
   ;; Store images in a subfolder named after the org file (e.g., my-notes-img/)
   (setq org-download-method 'directory)
-  (setq org-download-image-dir (concat (file-name-sans-extension (buffer-file-name)) "-img"))
+  (setq org-downloadrimage-dir (concat (file-name-sans-extension (buffer-file-name)) "-img"))
   ;; Display inserted images inline automatically
   (setq org-download-heading-level nil))
+
+(setq scroll-margin 8)
+(setq evil-ex-search-persistent-highlight nil
+      evil-ex-interactive-search-highlight nil)
