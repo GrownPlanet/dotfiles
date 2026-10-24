@@ -4,7 +4,7 @@ function DailyJournal()
     vim.cmd("edit" .. journal_dir .. date .. ".md")
 end
 
-function CompilePDF()
+function ExportPDF()
     local file = vim.fn.expand("%:p")
     local output = vim.fn.expand("%:p:r") .. ".pdf"
     vim.fn.jobstart({ 
@@ -20,7 +20,7 @@ function CompilePDF()
     })
 end
 
-function CompileHTML()
+function ExportHTML()
     local file = vim.fn.expand("%:p")
     local output = vim.fn.expand("%:p:r") .. ".html"
     vim.fn.jobstart({ 
@@ -61,8 +61,8 @@ function Notes()
     vim.keymap.set("n", "k", "gk", { buffer = true })
 
     vim.keymap.set("n", "<leader>nd", "<cmd>lua DailyJournal()<cr>", { buffer = true })
-    vim.keymap.set("n", "<leader>ncp", "<cmd>lua CompilePDF()<cr>", { buffer = true })
-    vim.keymap.set("n", "<leader>nch", "<cmd>lua CompileHTML()<cr>", { buffer = true })
+    vim.keymap.set("n", "<leader>ncp", "<cmd>lua ExportPDF()<cr>", { buffer = true })
+    vim.keymap.set("n", "<leader>nch", "<cmd>lua ExportHTML()<cr>", { buffer = true })
     vim.keymap.set("n", "<leader>i", "<cmd>lua pasteImage()<cr>", { buffer = true })
 end
 

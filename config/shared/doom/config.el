@@ -83,8 +83,10 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; no automatic clipboard sync
 (setq select-enable-clipboard nil)
 
+;; spelling in dutch
 (setq ispell-dictionary "nl_BE")
 
 ;; Enable visual line mode automatically for text & org buffers
@@ -97,6 +99,7 @@
   (define-key evil-visual-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line))
 
+;; dynamic font size in org notes
 (custom-set-faces!
   '(org-level-1 :height 1.35 :weight bold)
   '(org-level-2 :height 1.25 :weight bold)
@@ -107,21 +110,27 @@
   '(org-level-7 :height 1.0)
   '(org-level-8 :height 1.0))
 
+;; rendering latex formulas in org notes
 (after! org
   (setq org-preview-latex-default-process 'dvisvgm)
   (plist-put org-format-latex-options :scale 1))
 
+;; yank/paste from/to system clipboard
 (map! :leader
       :nv "y" "\"+y"   ; SPC y: yank to clipboard
       :nv "k" "\"+p"   ; SPC k: paste after
       :nv "K" "\"+P")  ; SPC K: paste before
 
+;; map U to undo
 (map! :n "U" "C-r")
 
+;; images!
 (setq org-startup-with-inline-images t)
 
+;; `assets' dir for pasting images
 (setq org-download-image-dir "assets")
 
+;; paste images
 (after! org-download
   ;; Store images in a subfolder named after the org file (e.g., my-notes-img/)
   (setq org-download-method 'directory)
@@ -129,6 +138,49 @@
   ;; Display inserted images inline automatically
   (setq org-download-heading-level nil))
 
+;; scroll margin when moving through text
 (setq scroll-margin 8)
+
+;; no highlighting after searching
 (setq evil-ex-search-persistent-highlight nil
       evil-ex-interactive-search-highlight nil)
+
+;; export the file using pandoc (because the built-in compilation SUCKS)
+(defun export-pdf ()
+  "Export the current buffer's file to PDF using pandoc in the background."
+  (interactive)
+  (if-let ((file (buffer-file-name)))
+      (let* ((output (concat (file-name-sans-extension file) ".pdf"))
+             (proc (start-process "pandoc-pdf" nil
+                                  "pandoc" file "-o" output
+                                  "--pdf-engine=xelatex"
+                                  "-V" "geometry:margin=2.5cm"
+                                  "-V" "fontsize=11pt"
+                                  "-V" "linestretch=1.25"
+                                  "-V" "mainfont=Latin Modern Roman"
+                                  "-V" "colorlinks=true"
+                                  "-V" "papersize=a4")))
+        (message "Compiling PDF in the background...")
+        (set-process-sentinel
+         proc
+         (lambda (_process event)
+           (when (string-prefix-p "finished" event)
+             (message "PDF compilation complete: %s" (file-name-nondirectory output))))))
+    (message "Buffer is not visiting a file!")))
+
+(defun export-html ()
+  "Export the current buffer's file to HTML using pandoc in the background."
+  (interactive)
+  (if-let ((file (buffer-file-name)))
+      (let* ((output (concat (file-name-sans-extension file) ".html"))
+             (proc (start-process "pandoc-html" nil
+                                  "pandoc" file "-o" output
+                                  "--standalone"
+                                  "--highlight-style=pygments")))
+        (message "Compiling HTML in the background...")
+        (set-process-sentinel
+         proc
+         (lambda (_process event)
+           (when (string-prefix-p "finished" event)
+             (message "HTML compilation complete: %s" (file-name-nondirectory output))))))
+    (message "Buffer is not visiting a file!")))

@@ -47,6 +47,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.g.bullets_outline_levels = { "num", "std-" }
 vim.g.bullets_custom_mappings = {
-  {'imap', '<tab>', '<Plug>(bullets-demote)'},
-  {'imap', '<s-tab>', '<Plug>(bullets-promote)'},
+    {'imap', '<tab>', '<Plug>(bullets-demote)'},
+    {'imap', '<s-tab>', '<Plug>(bullets-promote)'},
 }
