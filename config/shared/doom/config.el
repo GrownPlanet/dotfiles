@@ -19,13 +19,11 @@
 ;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
-;; accept. For example:
-;;
+;; accept.
+
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 16))
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-;; (setq doom-font (doom-spec :family "JetBrainsMono Nerd Font" :size 12))
-;;
+
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
@@ -46,6 +44,7 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode 1)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -101,19 +100,11 @@
 
 ;; dynamic font size in org notes
 (custom-set-faces!
-  '(org-level-1 :height 1.35 :weight bold)
-  '(org-level-2 :height 1.25 :weight bold)
-  '(org-level-3 :height 1.15 :weight bold)
-  '(org-level-4 :height 1.10 :weight semi-bold)
-  '(org-level-5 :height 1.05)
-  '(org-level-6 :height 1.0)
-  '(org-level-7 :height 1.0)
-  '(org-level-8 :height 1.0))
-
-;; rendering latex formulas in org notes
-(after! org
-  (setq org-preview-latex-default-process 'dvisvgm)
-  (plist-put org-format-latex-options :scale 1))
+  '(org-level-1 :inherit outline-1 :height 1.35)
+  '(org-level-2 :inherit outline-2 :height 1.25)
+  '(org-level-3 :inherit outline-3 :height 1.15)
+  '(org-level-4 :inherit outline-4 :height 1.10)
+  '(org-level-5 :inherit outline-5 :height 1.05))
 
 ;; yank/paste from/to system clipboard
 (map! :leader
@@ -127,16 +118,17 @@
 ;; images!
 (setq org-startup-with-inline-images t)
 
-;; `assets' dir for pasting images
-(setq org-download-image-dir "assets")
+(after! org
+  (setq org-preview-latex-default-process 'dvisvgm)
+  (plist-put org-format-latex-options :scale 1))
 
 ;; paste images
 (after! org-download
-  ;; Store images in a subfolder named after the org file (e.g., my-notes-img/)
-  (setq org-download-method 'directory)
-  (setq org-downloadrimage-dir (concat (file-name-sans-extension (buffer-file-name)) "-img"))
-  ;; Display inserted images inline automatically
-  (setq org-download-heading-level nil))
+  (setq org-download-method 'directory
+        org-download-image-dir "assets"
+        org-download-heading-lvl nil
+        org-download-timestamp "%Y%m%d-%H%M%S_"
+        org-download-screenshot-method "wl-paste -t image/png > %s"))
 
 ;; scroll margin when moving through text
 (setq scroll-margin 8)
