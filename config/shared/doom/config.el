@@ -99,12 +99,12 @@
   (define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line))
 
 ;; dynamic font size in org notes
-(custom-set-faces!
-  '(org-level-1 :inherit outline-1 :height 1.35)
-  '(org-level-2 :inherit outline-2 :height 1.25)
-  '(org-level-3 :inherit outline-3 :height 1.15)
-  '(org-level-4 :inherit outline-4 :height 1.10)
-  '(org-level-5 :inherit outline-5 :height 1.05))
+;;(custom-set-faces!
+;;  '(org-level-1 :inherit outline-1 :height 1.35)
+;;  '(org-level-2 :inherit outline-2 :height 1.25)
+;;  '(org-level-3 :inherit outline-3 :height 1.15)
+;;  '(org-level-4 :inherit outline-4 :height 1.10)
+;;  '(org-level-5 :inherit outline-5 :height 1.05))
 
 ;; yank/paste from/to system clipboard
 (map! :leader

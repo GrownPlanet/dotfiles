@@ -6,9 +6,7 @@ vim.pack.add({
     "https://github.com/neovim/nvim-lspconfig", -- lsp configs
     "https://github.com/MeanderingProgrammer/render-markdown.nvim", -- markdown
     "https://github.com/nvim-treesitter/nvim-treesitter", -- treesitter
-    "https://github.com/bullets-vim/bullets.vim", -- better bullet lists
-    "https://codeberg.org/andyg/leap.nvim", -- navigation
-    -- "https://github.com/christoomey/vim-tmux-navigator", -- easy tmux navigation
+    -- "https://github.com/bullets-vim/bullets.vim", -- better bullet lists
 })
 
 local pick = require("mini.pick")
@@ -29,7 +27,7 @@ require("render-markdown").setup({
     heading = { backgrounds = {}, signs = {} },
     code = { border = 'thick' },
     pipe_table = { style = 'normal' },
-a})
+})
 
 ts_languages = { "bash", "c", "cpp", "lua", "markdown", "toml", "rust", "json" }
 
@@ -45,8 +43,8 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function() vim.treesitter.start() end
 })
 
-vim.g.bullets_outline_levels = { "num", "std-" }
-vim.g.bullets_custom_mappings = {
-    {'imap', '<tab>', '<Plug>(bullets-demote)'},
-    {'imap', '<s-tab>', '<Plug>(bullets-promote)'},
-}
+-- vim.g.bullets_outline_levels = { "num", "std-" }
+-- vim.g.bullets_custom_mappings = {
+--     {'imap', '<tab>', '<Plug>(bullets-demote)'},
+--     {'imap', '<s-tab>', '<Plug>(bullets-promote)'},
+-- }
